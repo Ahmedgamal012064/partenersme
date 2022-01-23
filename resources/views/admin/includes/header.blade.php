@@ -1,5 +1,5 @@
 <nav
-    class="header-navbar navbar-expand-md navbar navbar-with-menu navbar-without-dd-arrow fixed-top navbar-dark  bg-info navbar-shadow">
+    class="header-navbar navbar-expand-md navbar navbar-with-menu navbar-without-dd-arrow fixed-top navbar-dark  bg-warning navbar-shadow">
     <div class="navbar-wrapper">
         <div class="navbar-header">
             <ul class="nav navbar-nav flex-row">
@@ -10,7 +10,7 @@
                 <a class="navbar-brand" href="{{url('/')}}">
                         <img class="brand-logo" alt="modern Admin logo"
                             src="{{asset('Adminlook/images/logo/logo.png')}}"
-                            style="width: 80px!important;height:40px">
+                            style="width: 50px!important;height:40px">
                         <h3 class="brand-text">PartenersMe</h3>
                     </a>
                 </li>
