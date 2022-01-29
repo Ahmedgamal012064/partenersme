@@ -25,6 +25,73 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'auth:admin'], function ()
     Route::post('/logout', 'DashboardController@logout')->name('admin.logout');
 
 
+    ######################### Begin services Routes ########################
+    Route::group(['prefix' => 'services'], function () {
+        Route::get('/','ServicesController@index') -> name('admin.services');
+        Route::get('create','ServicesController@create') -> name('admin.services.create');
+        Route::post('store','ServicesController@store') -> name('admin.services.store');
+        Route::get('edit/{id}','ServicesController@edit') -> name('admin.services.edit');
+        Route::post('update/{id}','ServicesController@update') -> name('admin.services.update');
+        //Route::get('delete/{id}','ServicesController@destroy') -> name('admin.services.delete');
+    });
+    ######################### End services Routes  ########################
+    ######################### Begin plans Routes ########################
+    Route::group(['prefix' => 'plans'], function () {
+        Route::get('/','PlansController@index') -> name('admin.plans');
+        Route::get('create','PlansController@create') -> name('admin.plans.create');
+        Route::post('store','PlansController@store') -> name('admin.plans.store');
+        Route::get('edit/{id}','PlansController@edit') -> name('admin.plans.edit');
+        Route::post('update/{id}','PlansController@update') -> name('admin.plans.update');
+        //Route::get('delete/{id}','PlansController@destroy') -> name('admin.plans.delete');
+    });
+    ######################### End plans Routes  ########################
+    ######################### Begin users Routes ########################
+    Route::group(['prefix' => 'users'], function () {
+    Route::get('/','UserController@index') -> name('admin.users');
+    Route::get('create','UserController@create') -> name('admin.users.create');
+    Route::post('store','UserController@store') -> name('admin.users.store');
+    Route::get('edit/{id}','UserController@edit') -> name('admin.users.edit');
+    Route::post('update/{id}','UserController@update') -> name('admin.users.update');
+    //Route::get('delete/{id}','UserController@destroy') -> name('admin.users.delete');
+});
+######################### End users Routes  ########################
+    ######################### Begin companies Routes ########################
+    Route::group(['prefix' => 'companies'], function () {
+        Route::get('/','CompanyConroller@index') -> name('admin.companies');
+        Route::get('create','CompanyConroller@create') -> name('admin.companies.create');
+        Route::post('store','CompanyConroller@store') -> name('admin.companies.store');
+        Route::get('edit/{id}','CompanyConroller@edit') -> name('admin.companies.edit');
+        Route::post('update/{id}','CompanyConroller@update') -> name('admin.companies.update');
+        //Route::get('delete/{id}','CompanyConroller@destroy') -> name('admin.companies.delete');
+    });
+    ######################### End companies Routes  ########################
+    ######################### Begin faqs Routes ########################
+    Route::group(['prefix' => 'faqs'], function () {
+        Route::get('/','FaqConroller@index') -> name('admin.faqs');
+        Route::get('create','FaqConroller@create') -> name('admin.faqs.create');
+        Route::post('store','FaqConroller@store') -> name('admin.faqs.store');
+        Route::get('edit/{id}','FaqConroller@edit') -> name('admin.faqs.edit');
+        Route::post('update/{id}','FaqConroller@update') -> name('admin.faqs.update');
+        Route::get('delete/{id}','FaqConroller@destroy') -> name('admin.faqs.delete');
+    });
+    ######################### End faqs Routes  ########################
+    ######################### Begin ads Routes ########################
+    Route::group(['prefix' => 'ads'], function () {
+        Route::get('/','AdsController@index') -> name('admin.ads');
+        Route::get('/pending','AdsController@pending') -> name('admin.ads.pending');
+        Route::get('/pending-pay','AdsController@pendingpay') -> name('admin.ads.pendingpay');
+        Route::get('/active','AdsController@active') -> name('admin.ads.active');
+        Route::get('/finished','AdsController@finished') -> name('admin.ads.finished');
+        Route::get('/cancel','AdsController@finished') -> name('admin.ads.cancel');
+        Route::get('create','AdsController@create') -> name('admin.ads.create');
+        Route::post('store','AdsController@store') -> name('admin.ads.store');
+        Route::get('edit/{id}','AdsController@edit') -> name('admin.ads.edit');
+        Route::post('update/{id}','AdsController@update') -> name('admin.ads.update');
+        Route::get('delete/{id}','AdsController@destroy') -> name('admin.ads.delete');
+        Route::get('changeStatus/{id}','AdsController@changeStatus') -> name('admin.ads.status');
+
+    });
+    ######################### End ads Routes  ########################
     ######################### Begin testmonials Routes ########################
     Route::group(['prefix' => 'testmonials'], function () {
         Route::get('/','TestmonialController@index') -> name('admin.testmonials');
@@ -35,92 +102,36 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'auth:admin'], function ()
         //Route::get('delete/{id}','TestmonialController@destroy') -> name('admin.testmonials.delete');
     });
     ######################### End testmonials Routes  ########################
-    ######################### Begin workers Routes ########################
-    Route::group(['prefix' => 'subcats'], function () {
-        Route::get('/','WorksController@index') -> name('admin.workers');
-        Route::get('create','WorksController@create') -> name('admin.workers.create');
-        Route::post('store','WorksController@store') -> name('admin.workers.store');
-        Route::get('edit/{id}','WorksController@edit') -> name('admin.workers.edit');
-        Route::post('update/{id}','WorksController@update') -> name('admin.workers.update');
-        //Route::get('delete/{id}','WorksController@destroy') -> name('admin.workers.delete');
+    ######################### Begin parteners Routes ########################
+    Route::group(['prefix' => 'parteners'], function () {
+        Route::get('/','PartenersController@index') -> name('admin.parteners');
+        Route::get('create','PartenersController@create') -> name('admin.parteners.create');
+        Route::post('store','PartenersController@store') -> name('admin.parteners.store');
+        Route::get('edit/{id}','PartenersController@edit') -> name('admin.parteners.edit');
+        Route::post('update/{id}','PartenersController@update') -> name('admin.parteners.update');
+        Route::get('delete/{id}','PartenersController@destroy') -> name('admin.parteners.delete');
     });
-    ######################### End workers Routes  ########################
-    ######################### Begin animals Routes ########################
-    Route::group(['prefix' => 'animals'], function () {
-        Route::get('/','AnimalsController@index') -> name('admin.animals');
-        Route::get('create','AnimalsController@create') -> name('admin.animals.create');
-        Route::post('store','AnimalsController@store') -> name('admin.animals.store');
-        Route::get('edit/{id}','AnimalsController@edit') -> name('admin.animals.edit');
-        Route::post('update/{id}','AnimalsController@update') -> name('admin.animals.update');
-        //Route::get('delete/{id}','AnimalsController@destroy') -> name('admin.animals.delete');
+    ######################### End parteners Routes  ########################
+    ######################### Begin blogs Routes ########################
+    Route::group(['prefix' => 'blogs'], function () {
+        Route::get('/','BlogController@index') -> name('admin.blogs');
+        Route::get('create','BlogController@create') -> name('admin.blogs.create');
+        Route::post('store','BlogController@store') -> name('admin.blogs.store');
+        Route::get('edit/{id}','BlogController@edit') -> name('admin.blogs.edit');
+        Route::post('update/{id}','BlogController@update') -> name('admin.blogs.update');
+        Route::get('delete/{id}','BlogController@destroy') -> name('admin.blogs.delete');
     });
-    ######################### End animals Routes  ########################
-    ######################### Begin countries Routes ########################
-    Route::group(['prefix' => 'countries'], function () {
-    Route::get('/','CounteryController@index') -> name('admin.countries');
-    Route::get('create','CounteryController@create') -> name('admin.countries.create');
-    Route::post('store','CounteryController@store') -> name('admin.countries.store');
-    Route::get('edit/{id}','CounteryController@edit') -> name('admin.countries.edit');
-    Route::post('update/{id}','CounteryController@update') -> name('admin.countries.update');
-    //Route::get('delete/{id}','CounteryController@destroy') -> name('admin.countries.delete');
-});
-######################### End countries Routes  ########################
-    ######################### Begin regions Routes ########################
-    Route::group(['prefix' => 'regions'], function () {
-        Route::get('/','RegionConroller@index') -> name('admin.regions');
-        Route::get('create','RegionConroller@create') -> name('admin.regions.create');
-        Route::post('store','RegionConroller@store') -> name('admin.regions.store');
-        Route::get('edit/{id}','RegionConroller@edit') -> name('admin.regions.edit');
-        Route::post('update/{id}','RegionConroller@update') -> name('admin.regions.update');
-        //Route::get('delete/{id}','RegionConroller@destroy') -> name('admin.regions.delete');
+    ######################### End blogs Routes  ########################
+    ######################### Begin withdraws Routes ########################
+    Route::group(['prefix' => 'withdraws'], function () {
+        Route::get('/','WithdrawController@index') -> name('admin.withdraws');
+        Route::get('/today','WithdrawController@today') -> name('admin.withdraws.today');
+        Route::get('/Accept','WithdrawController@accept') -> name('admin.withdraws.accept');
+        Route::get('/Pending','WithdrawController@pending') -> name('admin.withdraws.pending');
+        Route::get('/Cancel','WithdrawController@cancel') -> name('admin.withdraws.cancel');
+        Route::get('status/{id}','WithdrawController@destroy') -> name('admin.withdraws.status');
     });
-    ######################### End regions Routes  ########################
-    ######################### Begin faqs Routes ########################
-    Route::group(['prefix' => 'faqs'], function () {
-        Route::get('/','FaqConroller@index') -> name('admin.faqs');
-        Route::get('/orders','FaqConroller@orders') -> name('admin.orders');
-        Route::get('create','FaqConroller@create') -> name('admin.faqs.create');
-        Route::post('store','FaqConroller@store') -> name('admin.faqs.store');
-        Route::get('edit/{id}','FaqConroller@edit') -> name('admin.faqs.edit');
-        Route::post('update/{id}','FaqConroller@update') -> name('admin.faqs.update');
-        Route::get('delete/{id}','FaqConroller@destroy') -> name('admin.faqs.delete');
-    });
-    ######################### End faqs Routes  ########################
-
-    ######################### Begin helpers Routes ########################
-    Route::group(['prefix' => 'helpers'], function () {
-        Route::get('/','HelpersAdminController@index') -> name('admin.helpers');
-        Route::get('create','HelpersAdminController@create') -> name('admin.helpers.create');
-        Route::post('store','HelpersAdminController@store') -> name('admin.helpers.store');
-        Route::get('edit/{id}','HelpersAdminController@edit') -> name('admin.helpers.edit');
-        Route::post('update/{id}','HelpersAdminController@update') -> name('admin.helpers.update');
-        Route::get('delete/{id}','HelpersAdminController@destroy') -> name('admin.helpers.delete');
-       // Route::get('changeStatus/{id}','HelperController@changeStatus') -> name('admin.helpers.status');
-    });
-    ######################### Begin users Routes ########################
-    Route::group(['prefix' => 'users'], function () {
-        Route::get('/user/{type}','UserController@index') -> name('admin.users');
-        Route::get('create/{type}','UserController@create') -> name('admin.users.create');
-        Route::post('store','UserController@store') -> name('admin.users.store');
-        Route::get('edit/{id}','UserController@edit') -> name('admin.users.edit');
-        Route::post('update/{id}','UserController@update') -> name('admin.users.update');
-        Route::get('delete/{id}','UserController@destroy') -> name('admin.users.delete');
-       // Route::get('changeStatus/{id}','UserController@changeStatus') -> name('admin.users.status');
-
-    });
-    ######################### End users Routes  ########################
-    ######################### Begin products Routes ########################
-    Route::group(['prefix' => 'products'], function () {
-        Route::get('/','ProductController@index') -> name('admin.products');
-        Route::get('create','ProductController@create') -> name('admin.products.create');
-        Route::post('store','ProductController@store') -> name('admin.products.store');
-        Route::get('edit/{id}','ProductController@edit') -> name('admin.products.edit');
-        Route::post('update/{id}','ProductController@update') -> name('admin.products.update');
-        Route::get('delete/{id}','ProductController@destroy') -> name('admin.products.delete');
-       // Route::get('changeStatus/{id}','ProductController@changeStatus') -> name('admin.products.status');
-
-    });
-    ######################### End products Routes  ########################
+    ######################### End withdraws Routes  ########################
 
 });
 
