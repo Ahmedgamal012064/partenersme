@@ -25,7 +25,7 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'auth:admin'], function ()
     Route::post('/logout', 'DashboardController@logout')->name('admin.logout');
 
 
-    ######################### Begin services Routes ########################
+    ######################### Begin services Routes ########################Done
     Route::group(['prefix' => 'services'], function () {
         Route::get('/','ServicesController@index') -> name('admin.services');
         Route::get('create','ServicesController@create') -> name('admin.services.create');
@@ -35,7 +35,7 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'auth:admin'], function ()
         //Route::get('delete/{id}','ServicesController@destroy') -> name('admin.services.delete');
     });
     ######################### End services Routes  ########################
-    ######################### Begin plans Routes ########################
+    ######################### Begin plans Routes ########################Done
     Route::group(['prefix' => 'plans'], function () {
         Route::get('/','PlansController@index') -> name('admin.plans');
         Route::get('create','PlansController@create') -> name('admin.plans.create');
@@ -45,7 +45,7 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'auth:admin'], function ()
         //Route::get('delete/{id}','PlansController@destroy') -> name('admin.plans.delete');
     });
     ######################### End plans Routes  ########################
-    ######################### Begin users Routes ########################
+    ######################### Begin users Routes ########################Done
     Route::group(['prefix' => 'users'], function () {
     Route::get('/','UserController@index') -> name('admin.users');
     Route::get('create','UserController@create') -> name('admin.users.create');
@@ -55,7 +55,7 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'auth:admin'], function ()
     //Route::get('delete/{id}','UserController@destroy') -> name('admin.users.delete');
 });
 ######################### End users Routes  ########################
-    ######################### Begin companies Routes ########################
+    ######################### Begin companies Routes ########################Done
     Route::group(['prefix' => 'companies'], function () {
         Route::get('/','CompanyConroller@index') -> name('admin.companies');
         Route::get('create','CompanyConroller@create') -> name('admin.companies.create');
@@ -65,14 +65,14 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'auth:admin'], function ()
         //Route::get('delete/{id}','CompanyConroller@destroy') -> name('admin.companies.delete');
     });
     ######################### End companies Routes  ########################
-    ######################### Begin faqs Routes ########################
+    ######################### Begin faqs Routes ########################Done
     Route::group(['prefix' => 'faqs'], function () {
         Route::get('/','FaqConroller@index') -> name('admin.faqs');
         Route::get('create','FaqConroller@create') -> name('admin.faqs.create');
         Route::post('store','FaqConroller@store') -> name('admin.faqs.store');
         Route::get('edit/{id}','FaqConroller@edit') -> name('admin.faqs.edit');
         Route::post('update/{id}','FaqConroller@update') -> name('admin.faqs.update');
-        Route::get('delete/{id}','FaqConroller@destroy') -> name('admin.faqs.delete');
+        //Route::get('delete/{id}','FaqConroller@destroy') -> name('admin.faqs.delete');
     });
     ######################### End faqs Routes  ########################
     ######################### Begin ads Routes ########################
@@ -92,7 +92,7 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'auth:admin'], function ()
 
     });
     ######################### End ads Routes  ########################
-    ######################### Begin testmonials Routes ########################
+    ######################### Begin testmonials Routes ########################Done
     Route::group(['prefix' => 'testmonials'], function () {
         Route::get('/','TestmonialController@index') -> name('admin.testmonials');
         Route::get('create','TestmonialController@create') -> name('admin.testmonials.create');
@@ -102,7 +102,7 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'auth:admin'], function ()
         //Route::get('delete/{id}','TestmonialController@destroy') -> name('admin.testmonials.delete');
     });
     ######################### End testmonials Routes  ########################
-    ######################### Begin parteners Routes ########################
+    ######################### Begin parteners Routes ########################Done
     Route::group(['prefix' => 'parteners'], function () {
         Route::get('/','PartenersController@index') -> name('admin.parteners');
         Route::get('create','PartenersController@create') -> name('admin.parteners.create');

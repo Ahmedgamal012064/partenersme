@@ -53,11 +53,11 @@
                                                             <div class="col-md-12">
                                                                 <div class="form-group">
                                                                     <label for="projectinput1"> السؤال </label>
-                                                                    <input type="text" value="" id="question"
+                                                                    <input type="text" value="" id="title"
                                                                         class="form-control"
                                                                         placeholder="  "
-                                                                        name="question">
-                                                                    @error("question")
+                                                                        name="title">
+                                                                    @error("title")
                                                                 <span class="text-danger">{{$message}}</span>
                                                                     @enderror
                                                                 </div>

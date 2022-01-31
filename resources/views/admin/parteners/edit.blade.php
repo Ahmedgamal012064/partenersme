@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title',"تعديل الاسئلة الشائعة")
+@section('title',"تعديل شركائي المليون")
 @section('content')
 
     <div class="app-content content">
@@ -11,9 +11,9 @@
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">الصفحة الرئيسية </a>
                                 </li>
-                            <li class="breadcrumb-item"><a href="{{route('admin.faqs')}}">  الاسئلة الشائعة </a>
+                            <li class="breadcrumb-item"><a href="{{route('admin.parteners')}}">  الاسئلة الشائعة </a>
                                 </li>
-                                <li class="breadcrumb-item active"> تعديل الاسئلة الشائعة - {{ $faq-> question }}
+                                <li class="breadcrumb-item active"> تعديل  شركائي المليون - {{$partener->title }}
                                 </li>
                             </ol>
                         </div>
@@ -27,7 +27,7 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title" id="basic-layout-form"> تعديل الاسئلة الشائعة</h4>
+                                    <h4 class="card-title" id="basic-layout-form"> تعديل شركائي المليون</h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
@@ -44,36 +44,61 @@
                                 <div class="card-content collapse show">
                                     <div class="card-body">
                                         <form class="form"
-                                            action="{{route('admin.faqs.update',$faq -> id)}}"
+                                            action="{{route('admin.parteners.update',$partener -> id)}}"
                                             method="POST"
                                             enctype="multipart/form-data">
                                             @csrf
 
-                                            <input name="id" value="{{$faq -> id}}" type="hidden">
+                                            <input name="id" value="{{$partener -> id}}" type="hidden">
+                                            <div class="form-group">
+                                                <div class="text-center">
+                                                    <img
+                                                        src="@if (!empty($partener-> photo))
+                                                        {{asset($partener-> photo)}}
+                                                            @else
+                                                        {{asset("Adminlook/images/admin.png")}}
+                                                        @endif"
+                                                        class="rounded-circle  height-150" alt="صورة">
+                                                </div>
+                                            </div>
                                             <div class="form-body">
 
-                                                <h4 class="form-section"><i class="ft-home"></i> بيانات الاسئلة الشائعة</h4>
+                                                <h4 class="form-section"><i class="ft-home"></i> بيانات شركائي المليون</h4>
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <div class="form-group">
-                                                            <label for="projectinput1"> السؤال </label>
-                                                            <input type="text" value="{{$faq->title}}" id="title"
+                                                            <label> صوره الشخصية </label>
+                                                            <label id="projectinput7" class="file center-block">
+                                                                <input type="file" id="file" name="photo" />
+                                                                <span class="file-custom"></span>
+                                                            </label>
+                                                            @error('photo')
+                                                            <span class="text-danger">{{$message}}</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="projectinput1"> الاسم </label>
+                                                            <input type="text" value="{{$partener->title}}" id="title"
                                                                 class="form-control"
-                                                                placeholder="  "
+                                                                placeholder="الاسم"
                                                                 name="title">
                                                             @error("title")
                                                         <span class="text-danger">{{$message}}</span>
                                                             @enderror
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-12">
+                                                    <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="projectinput1"> الجواب </label>
-                                                                <textarea class="form-control" rows="30"
-                                                                cols="15" name="answer">{{$faq->answer}}</textarea>
-                                                            @error("answer")
-                                                        <span class="text-danger">{{$message}}</span>
-                                                            @enderror
+                                                            <label for="projectinput1"> الرابط </label>
+                                                            <input type="url" value="{{$partener->link_web}}" id="link_web"
+                                                                class="form-control"
+                                                                placeholder="الاسم"
+                                                                name="link_web">
+                                                        @error("link_web")
+                                                            <span class="text-danger">{{$message}}</span>
+                                                        @enderror
                                                         </div>
                                                     </div>
                                                 </div>

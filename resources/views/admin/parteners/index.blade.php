@@ -1,17 +1,17 @@
 @extends('layouts.admin')
-@section('title',"المؤسسات")
+@section('title',"الاسئلة الشائعة")
 @section('content')
     <div class="app-content content">
         <div class="content-wrapper">
             <div class="content-header row">
                 <div class="content-header-left col-md-6 col-12 mb-2">
-                    <h3 class="content-header-title">  المؤسسات </h3>
+                    <h3 class="content-header-title"> الاسئلة الشائعة </h3>
                     <div class="row breadcrumbs-top">
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">الرئيسية</a>
+                                <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">الصفحة الرئيسية</a>
                                 </li>
-                                <li class="breadcrumb-item active"> المؤسسات
+                                <li class="breadcrumb-item active"> الاسئلة الشائعة
                                 </li>
                             </ol>
                         </div>
@@ -25,7 +25,7 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">المؤسسات</h4>
+                                    <h4 class="card-title">الاسئلة الشائعة</h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
@@ -44,39 +44,47 @@
                                 <div class="card-content collapse show">
                                     <div class="card-body card-dashboard">
                                         <table
-                                            class="table display nowrap table-striped table-bordered scroll-horizontal">{{--scroll-horizontal--}}
+                                            class="table display nowrap table-striped table-bordered">{{--scroll-horizontal--}}
                                             <thead class="">
                                             <tr>
+                                                <th>الصورة</th>
                                                 <th>الاسم </th>
-                                                <th>الهاتف</th>
-                                                <th>البريد الالكتروني</th>
-                                                <th>مبلغ المحفظة</th>
-                                                <th>الرقم الضريبي</th>
+                                                <th>الرابط </th>
                                                 <th>الإجراءات</th>
                                             </tr>
                                             </thead>
                                             <tbody>
 
-                                            @isset($companies )
-                                                @foreach($companies  as $user )
+                                            @isset($parteners )
+                                                @foreach($parteners  as $partener )
                                                     <tr>
-                                                        <td>{{$user-> name}}</td>
-                                                        <td dir="ltr">{{$user-> phone}}</td>
-                                                        <td>{{$user-> email}}</td>
-                                                        <td>{{$user-> coins}}</td>
-                                                        <td>{{$user-> id_bussiness}}</td>
+                                                        <td> <img
+                                                            src="@if (!empty($partener-> photo))
+                                                            {{asset($partener-> photo)}}
+                                                                @else
+                                                            {{asset("Adminlook/images/admin.png")}}
+                                                            @endif"
+                                                            class="rounded-circle  height-150" alt="صورة"></td>
+                                                        <td>{{$partener-> title}}</td>
+                                                        <td>{{$partener-> link_web}}</td>
                                                         <td>
-                                                            <div class="btn-group" role="group" aria-label="Basic example">
-                                                                <a href="{{route('admin.companies.edit',$user -> id)}}"
-                                                                    class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">تعديل</a>
+                                                            <div class="btn-group" role="group"
+                                                                aria-label="Basic example">
+                                                            <a href="{{route('admin.parteners.edit',$partener -> id)}}"
+                                                                class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">تعديل</a>
 
-                                                            {{--<a href="{{route('admin.companies.delete',$user -> id)}}"
-                                                                    class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">حذف</a>--}}
+
+                                                            {{-- <a href="{{route('admin.parteners.delete',$partener -> id)}}"
+                                                                class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">حذف</a> --}}
+
+
                                                             </div>
                                                         </td>
                                                     </tr>
                                                 @endforeach
                                             @endisset
+
+
                                             </tbody>
                                         </table>
                                     </div>

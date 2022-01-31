@@ -57,7 +57,7 @@
                                             @isset($faqs )
                                                 @foreach($faqs  as $faq )
                                                     <tr>
-                                                        <td>{{$faq-> question}}</td>
+                                                        <td>{{$faq-> title}}</td>
                                                         <td>{{$faq-> answer}}</td>
                                                         <td>
                                                             <div class="btn-group" role="group"
@@ -79,9 +79,6 @@
 
                                             </tbody>
                                         </table>
-                                        <div class="justify-content-center d-flex">
-                                            {{  $faqs -> links() }}
-                                        </div>
                                     </div>
                                 </div>
                             </div>

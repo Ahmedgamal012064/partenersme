@@ -1,6 +1,5 @@
 @extends('layouts.admin')
-@section('title',"اضافة خطة")
-
+@section('title',"اضافة شركائي المليون ")
 @section('content')
 
     <div class="app-content content">
@@ -10,12 +9,12 @@
                     <div class="row breadcrumbs-top">
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">الرئيسية </a>
-                                </li>
-                            <li class="breadcrumb-item"><a href="{{route('admin.plans')}}">  الخطط </a>
-                                </li>
-                                <li class="breadcrumb-item active">إضافة خطة
-                                </li>
+                            <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Home </a>
+                            </li>
+                            <li class="breadcrumb-item"><a href="{{route('admin.parteners')}}"> شركائي المليون </a>
+                            </li>
+                            <li class="breadcrumb-item active">اضافة  شركائي المليون
+                            </li>
                             </ol>
                         </div>
                     </div>
@@ -28,7 +27,7 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title" id="basic-layout-form"> إضافة  خطة </h4>
+                                    <h4 class="card-title" id="basic-layout-form">  اضافة  شركائي المليون </h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
@@ -44,50 +43,50 @@
                                 @include('admin.includes.alerts.errors')
                                 <div class="card-content collapse show">
                                     <div class="card-body">
-                                        <form class="form" action="{{route('admin.plans.store')}}"
-                                            method="POST">
+                                        <form class="form" action="{{route('admin.parteners.store')}}"
+                                            method="POST"
+                                            enctype="multipart/form-data">
                                             @csrf
                                             <div class="form-body">
-                                                <h4 class="form-section"><i class="ft-home"></i> بيانات الخطة </h4>
+                                                <h4 class="form-section"><i class="ft-home"></i> بيانات شركائي المليون </h4>
                                                         <div class="row">
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-12">
                                                                 <div class="form-group">
-                                                                    <label for="projectinput1"> اسم الخطة </label>
-                                                                    <input type="text" value="" id="name"
-                                                                        class="form-control"
-                                                                        placeholder="اسم الخطة"
-                                                                        name="name" required>
-                                                                    @error("name")
-                                                                <span class="text-danger">{{$message}}</span>
+                                                                    <label> صوره </label>
+                                                                    <label id="projectinput7" class="file center-block">
+                                                                        <input type="file" id="file" name="photo" />
+                                                                        <span class="file-custom"></span>
+                                                                    </label>
+                                                                    @error('photo')
+                                                                    <span class="text-danger">{{$message}}</span>
                                                                     @enderror
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <label for="projectinput1"> سعر الخطة </label>
-                                                                    <input type="text" value="" id="price"
+                                                                    <label for="projectinput1"> الاسم </label>
+                                                                    <input type="text" value="" id="title"
                                                                         class="form-control"
-                                                                        placeholder="سعر الخطة"
-                                                                        name="price" required>
-                                                                    @error("price")
-                                                                <span class="text-danger">{{$message}}</span>
-                                                                    @enderror
+                                                                        placeholder="الاسم"
+                                                                        name="title">
+                                                                @error("title")
+                                                                    <span class="text-danger">{{$message}}</span>
+                                                                @enderror
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <label for="projectinput1"> مشاهدة الخطة </label>
-                                                                    <input type="text" value="" id="views"
+                                                                    <label for="projectinput1"> الرابط </label>
+                                                                    <input type="url" value="" id="link_web"
                                                                         class="form-control"
-                                                                        placeholder="مشاهدة الخطة"
-                                                                        name="views" required>
-                                                                    @error("views")
-                                                                <span class="text-danger">{{$message}}</span>
-                                                                    @enderror
+                                                                        placeholder="الاسم"
+                                                                        name="link_web">
+                                                                @error("link_web")
+                                                                    <span class="text-danger">{{$message}}</span>
+                                                                @enderror
                                                                 </div>
                                                             </div>
-
-                                                    </div>
+                                                        </div>
                                             </div>
 
                                             <div class="form-actions">
