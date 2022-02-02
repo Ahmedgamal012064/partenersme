@@ -1,17 +1,17 @@
 @extends('layouts.admin')
-@section('title',"المدونة")
+@section('title',"الاعلانات بانتظار التفعيل")
 @section('content')
     <div class="app-content content">
         <div class="content-wrapper">
             <div class="content-header row">
                 <div class="content-header-left col-md-6 col-12 mb-2">
-                    <h3 class="content-header-title"> المدونة </h3>
+                    <h3 class="content-header-title"> الاعلانات بانتظار التفعيل  </h3>
                     <div class="row breadcrumbs-top">
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">الصفحة الرئيسية</a>
                                 </li>
-                                <li class="breadcrumb-item active"> المدونة
+                                <li class="breadcrumb-item active"> الاعلانات بانتظار التفعيل
                                 </li>
                             </ol>
                         </div>
@@ -25,7 +25,7 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">المدونة</h4>
+                                    <h4 class="card-title">الاعلانات بانتظار التفعيل</h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
@@ -47,46 +47,30 @@
                                             class="table display nowrap table-striped table-bordered">{{--scroll-horizontal--}}
                                             <thead class="">
                                             <tr>
-                                                <th>الصورة</th>
                                                 <th>الاسم </th>
-                                                <th> الوصف </th>
+                                                <th>مالك الاعلان</th>
+                                                <th>الباقة </th>
+                                                <th>لينك الموقع </th>
+                                                <th>تاريخ بدء الاعلان</th>
+                                                <th>السعر</th>
                                                 <th>الإجراءات</th>
                                             </tr>
                                             </thead>
                                             <tbody>
 
-                                            @isset($blogs )
-                                                @foreach($blogs  as $blog )
+                                            @isset($ads )
+                                                @foreach($ads  as $ad )
                                                     <tr>
-                                                        <td>
-                                                            <img
-                                                            src="@if (!empty($blog-> photo))
-                                                            {{asset($blog-> photo)}}
-                                                                @else
-                                                            {{asset("Adminlook/images/admin.png")}}
-                                                            @endif"
-                                                            class="rounded-circle  height-150" alt="صورة">
-                                                        </td>
-                                                        <td>{{$blog-> name}}</td>
-                                                        <td>{{$blog-> description}}</td>
-                                                        <td>
-                                                            <div class="btn-group" role="group"
-                                                                aria-label="Basic example">
-                                                            <a href="{{route('admin.blogs.edit',$blog -> id)}}"
-                                                                class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">تعديل</a>
-
-
-                                                            {{-- <a href="{{route('admin.blogs.delete',$blog -> id)}}"
-                                                                class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">حذف</a> --}}
-
-
-                                                            </div>
-                                                        </td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
                                                     </tr>
                                                 @endforeach
                                             @endisset
-
-
                                             </tbody>
                                         </table>
                                     </div>

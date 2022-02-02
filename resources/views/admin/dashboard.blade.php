@@ -7,11 +7,11 @@
         </div>
         <div class="content-body">
             <div id="crypto-stats-3" class="row">
-                <div class="col-12 col-md-12 col-xl-12 col-lg-12 text-center mb-2">
+                {{-- <div class="col-12 col-md-12 col-xl-12 col-lg-12 text-center mb-2">
                     <a href="#" class="btn btn-info btn-block" data-toggle="modal" data-target="#exampleModal"><i class="la la-send"></i> ارسال اشعارات</a>
-                </div>
+                </div> --}}
                 <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                {{-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -47,7 +47,7 @@
                         </form>
                         </div>
                     </div>
-                </div>
+                </div> --}}
                   <div class="col-xl-4 col-lg-6 col-12">
                     <div class="card pull-up">
                       <div class="card-content">
@@ -55,10 +55,10 @@
                           <div class="media d-flex">
                             <div class="media-body text-left">
                               <h3 class="warning">0</h3>
-                              <h6>الزيارات اليومية</h6>
+                              <h6>السحوبات المعلقة</h6>
                             </div>
                             <div>
-                              <i class="icon-user-follow warning font-large-2 float-right"></i>
+                              <i class="la la-history warning font-large-2 float-right"></i>
                             </div>
                           </div>
                           <div class="progress progress-sm mt-1 mb-0 box-shadow-2">
@@ -75,10 +75,10 @@
                           <div class="media d-flex">
                             <div class="media-body text-left">
                               <h3 class="info">0</h3>
-                              <h6>الاشتراك البريدي اليومي</h6>
+                              <h6>السحوبات المكتملة</h6>
                             </div>
                             <div>
-                              <i class="la la-send  info font-large-2 float-right"></i>
+                              <i class="la la-check  info font-large-2 float-right"></i>
                             </div>
                           </div>
                           <div class="progress progress-sm mt-1 mb-0 box-shadow-2">
@@ -171,7 +171,36 @@
             </div>
             <!-- Candlestick Multi Level Control Chart -->
             </div>
+             <!-- Products sell and New Orders -->
+        <div class="row match-height">
+            <div class="col-xl-12 col-12" id="ecommerceChartView">
+              <div class="card card-shadow">
+                <div class="card-header card-header-transparent py-20">
+                  <div class="btn-group dropdown">
+                    <a href="#" class="text-body dropdown-toggle blue-grey-700" data-toggle="dropdown">تصنيف</a>
+                    <div class="dropdown-menu animate" role="menu">
+                      <a class="dropdown-item" href="#" role="menuitem">الاعلانات</a>
+                      <a class="dropdown-item" href="#" role="menuitem">مجموع السحوبات</a>
+                      <a class="dropdown-item" href="#" role="menuitem">الربح</a>
+                    </div>
+                  </div>
+                  <ul class="nav nav-pills nav-pills-rounded chart-action float-right btn-group" role="group">
+                    <li class="nav-item"><a class="active nav-link" data-toggle="tab" href="#scoreLineToDay">اليوم</a></li>
+                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#scoreLineToWeek">الاسبوع</a></li>
+                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#scoreLineToMonth">الشهر</a></li>
+                  </ul>
+                </div>
+                <div class="widget-content tab-content bg-white p-20">
+                  <div class="ct-chart tab-pane active scoreLineShadow" id="scoreLineToDay"></div>
+                  <div class="ct-chart tab-pane scoreLineShadow" id="scoreLineToWeek"></div>
+                  <div class="ct-chart tab-pane scoreLineShadow" id="scoreLineToMonth"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--/ Products sell and New Orders -->
         </div>
+
     </div>
 </div>
 

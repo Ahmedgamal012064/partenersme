@@ -38,6 +38,7 @@
         @endif
         <!-- Favicon -->
         <link rel="icon" type="image/png" href="{{asset('Frontend/ar/img/favicon.png')}}">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/8.4.6/css/intlTelInput.css">
         <!-- Tittle -->
         <title>@yield('title')</title>
         @notify_css

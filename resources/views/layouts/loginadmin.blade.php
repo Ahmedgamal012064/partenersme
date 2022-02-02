@@ -31,12 +31,59 @@
     <!-- END Custom CSS-->
     @notify_css
     <link href="https://fonts.googleapis.com/css?family=Cairo&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/8.4.6/css/intlTelInput.css">
     <style>
         body {
             font-family: 'Cairo', sans-serif;
         }
     </style>
 </head>
+@yield('style')
+<style>
+.btn-show-pass {
+    font-size: 20px;
+    color: #999999;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: left;
+    position: absolute;
+    height: 100%;
+    top: 12px;
+    left: 30px;
+    cursor: pointer;
+    -webkit-transition: background 0.4s;
+    -o-transition: background 0.4s;
+    -moz-transition: background 0.4s;
+    transition: background 0.4s;
+}
+</style>
+<style>
+.intl-tel-input {
+    display: block;
+    width:100%;
+}
+.intl-tel-input .selected-flag {
+    z-index: 4;
+}
+.intl-tel-input .country-list {
+    z-index: 5;
+    text-align: right;
+}
+.input-group .intl-tel-input .form-control {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 0;
+}
+
+.intl-tel-input.allow-dropdown .flag-container {
+    right: 5px;
+    left: 0;
+}
+</style>
 <body class="vertical-layout vertical-menu 1-column   menu-expanded blank-page blank-page" data-open="click" data-menu="vertical-menu" data-col="1-column">
 <!-- ////////////////////////////////////////////////////////////////////////////-->
 <div class="app-content content">
@@ -70,5 +117,35 @@
 </script>
 @notify_js
 @notify_render
+<script>
+    $(document).ready(function(){
+        var showPass = 0;
+        $('.btn-show-pass').on('click', function(){
+            if(showPass == 0) {
+                $(this).next('input').attr('type','text');
+                $(this).find('i').removeClass('la la-eye');
+                $(this).find('i').addClass('la la-eye-slash');
+                showPass = 1;
+            }else {
+                $(this).next('input').attr('type','password');
+                $(this).find('i').removeClass('la la-eye-slash');
+                $(this).find('i').addClass('la la-eye');
+                showPass = 0;
+            }
+
+        });
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/8.4.7/js/intlTelInput.js"></script>
+<script>
+$("input#phone").intlTelInput({
+utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/8.4.6/js/utils.js"
+});
+
+$('.selected-flag').click(function(){
+$('input#phone').val($('.country-list .country.active').find('.dial-code').html());
+});
+</script>
 </body>
 </html>

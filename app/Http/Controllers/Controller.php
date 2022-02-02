@@ -9,9 +9,12 @@ use Illuminate\Routing\Controller as BaseController;
 use App\Models\Newsletter;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Alert;
 use Stevebauman\Location\Facades\Location;
+//use Twilio\Rest\Client;
+use App\User;
 
 class Controller extends BaseController
 {
@@ -112,5 +115,60 @@ class Controller extends BaseController
             ]);
             return 'done';
         }
+    }
+
+    //////////////////////////Verify Phone
+    public function getverify()
+    {
+        if(!empty(session('phone'))){
+            return view('auth.verifyphone');
+        }else{
+            return redirect(url('/register'));
+        }
+    }
+
+    public function verify(Request $request)
+    {
+        $data = $request->validate([
+            'verification_code' => ['required'],
+            'verification_code.*' => ['numeric'],
+            'phone' => ['required'],
+        ]);
+
+        $phone = $data['phone'];
+        $code = (int)implode('',$data["verification_code"]);
+        /* Get credentials from .env */
+        // $token = getenv("TWILIO_AUTH_TOKEN");
+        // $twilio_sid = getenv("TWILIO_SID");
+        // $twilio_verify_sid = getenv("TWILIO_VERIFY_SID");
+        // $twilio = new Client($twilio_sid, $token);
+        // $verification = $twilio->verify->v2->services($twilio_verify_sid)
+        //     ->verificationChecks
+        //     ->create($code, array('to' => $phone));
+        if ($code  == "123456") {  //$verification->valid
+
+            $user = tap(User::where('phone', $data['phone']))->update(['phone_veify' => true]);
+            Auth::login($user->first());
+            notify()->success('تم تفعيل رقم الهاتف');
+            return redirect()->route('home');
+        }
+        notify()->error('هذا الكود غير صحيح');
+        return back()->with(['phone' => $data['phone']]);
+    }
+
+    public function resend(Request $request)
+    {
+        $phone = $request->phone;
+
+         /* Get credentials from .env */
+        // $token = getenv("TWILIO_AUTH_TOKEN");
+        // $twilio_sid = getenv("TWILIO_SID");
+        // $twilio_verify_sid = getenv("TWILIO_VERIFY_SID");
+        // $twilio = new Client($twilio_sid, $token);
+        // $twilio->verify->v2->services($twilio_verify_sid)
+        //     ->verifications
+        //     ->create($phone, "sms");
+
+        return response()->json(['msg' => 'done']);
     }
 }

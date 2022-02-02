@@ -21,24 +21,27 @@
                 @include('admin.includes.alerts.success')
                 <div class="card-content">
                     <div class="card-body">
-                        <form class="form-horizontal form-simple" action="{{route('login')}}" method="post"
-                              novalidate>
+                        <form class="form-horizontal form-simple" action="{{route('login')}}" method="post" novalidate>
                             @csrf
-                            <fieldset class="form-group position-relative has-icon-left mb-1">
-                                <input type="email" name="email" class="form-control form-control-lg input-lg"
-                                       value="{{old('email')}}" id="email" placeholder="البريد الالكتروني" maxlength="11">
+                            <fieldset class="form-group position-relative  mb-1">
+                                <input type="tel" name="phone" class="form-control form-control-lg input-lg"
+                                    value="{{old('phone')}}" id="phone" placeholder="+966*********" dir="ltr">
                                 <div class="form-control-position">
                                     <i class="ft-user"></i>
                                 </div>
-                                @error('email')
+                                @error('phone')
                                 <span class="text-danger">{{$message}}</span>
                                 @enderror
 
                             </fieldset>
+
                             <fieldset class="form-group position-relative has-icon-left mb-0">
+                                <span class="btn-show-pass">
+                                    <i class="la la-eye"></i>
+                                </span>
                                 <input type="password" name="password" class="form-control form-control-lg input-lg"
-                                       id="user-password"
-                                       placeholder="أدخل كلمة المرور">
+                                    id="user-password"
+                                    placeholder="أدخل كلمة المرور">
                                 <div class="form-control-position">
                                     <i class="la la-key"></i>
                                 </div>
@@ -50,7 +53,7 @@
                                 <div class="col-md-6 col-12 text-center text-md-left">
                                     <fieldset>
                                         <input type="checkbox" name="remember_me" id="remember-me"
-                                               class="chk-remember">
+                                        class="chk-remember">
                                         <label for="remember-me">تذكر دخولي</label>
                                     </fieldset>
                                 </div>
@@ -67,7 +70,7 @@
                 @endif --}}
 
 
-                    <p class="text-center">لاتمتلك حساب وتريد الاشتراك ؟ <a href="{{route('register')}}" class="card-link">Register</a></p>
+                    <p class="text-center">لاتمتلك حساب وتريد الاشتراك ؟ <a href="{{route('register')}}" class="card-link">الاشتراك</a></p>
                 </div>
             </div>
         </div>

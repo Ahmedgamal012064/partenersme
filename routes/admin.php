@@ -82,13 +82,13 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'auth:admin'], function ()
         Route::get('/pending-pay','AdsController@pendingpay') -> name('admin.ads.pendingpay');
         Route::get('/active','AdsController@active') -> name('admin.ads.active');
         Route::get('/finished','AdsController@finished') -> name('admin.ads.finished');
-        Route::get('/cancel','AdsController@finished') -> name('admin.ads.cancel');
+        Route::get('/cancel','AdsController@notes') -> name('admin.ads.cancel');
         Route::get('create','AdsController@create') -> name('admin.ads.create');
         Route::post('store','AdsController@store') -> name('admin.ads.store');
         Route::get('edit/{id}','AdsController@edit') -> name('admin.ads.edit');
         Route::post('update/{id}','AdsController@update') -> name('admin.ads.update');
         Route::get('delete/{id}','AdsController@destroy') -> name('admin.ads.delete');
-        Route::get('changeStatus/{id}','AdsController@changeStatus') -> name('admin.ads.status');
+        Route::post('changeStatus/{id}','AdsController@changeStatus') -> name('admin.ads.status');
 
     });
     ######################### End ads Routes  ########################
@@ -112,7 +112,7 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'auth:admin'], function ()
         Route::get('delete/{id}','PartenersController@destroy') -> name('admin.parteners.delete');
     });
     ######################### End parteners Routes  ########################
-    ######################### Begin blogs Routes ########################
+    ######################### Begin blogs Routes ########################Done
     Route::group(['prefix' => 'blogs'], function () {
         Route::get('/','BlogController@index') -> name('admin.blogs');
         Route::get('create','BlogController@create') -> name('admin.blogs.create');

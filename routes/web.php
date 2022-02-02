@@ -36,10 +36,15 @@ Route::group( [ 'prefix' => 'LaravelLocalization'::setLocale(),
             return redirect(url('/'));
         }
     })->name('works');
+
     Route::get('/Parteners', function () { return view('parteners'); })->name('parteners');
     Route::post('/send-message', 'Controller@sendmessage')->name('send.message');
     Route::post('/Add-Newsletter', 'Controller@addnews')->name('add.news');
     Route::post('/devicetoken-guest', 'Controller@devicetokenguest')->name('save.token.guest');
+
+    Route::get('/verifyphone', 'Controller@getverify')->name('verify.phone');
+    Route::post('/verifed', 'Controller@verify')->name('verifyotp');
+    Route::post('/resend-code', 'Controller@resend')->name('resend');
 
     Auth::routes();
 

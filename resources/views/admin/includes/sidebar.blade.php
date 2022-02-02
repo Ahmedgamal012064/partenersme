@@ -72,7 +72,7 @@
                     <a href=""><i class="la la-building"></i>
                             <span class="menu-title" data-i18n="nav.dash.main">الاسئلة الشائعة  </span>
                             <span
-                                class="badge badge badge-primary  badge-pill float-right mr-2">{{App\Models\Faq::where('type','company')->count()}}</span>
+                                class="badge badge badge-primary  badge-pill float-right mr-2">{{App\Models\Faq::count()}}</span>
                         </a>
                         <ul class="menu-content">
                             <li><a class="menu-item" href="{{route('admin.faqs')}}"
@@ -97,7 +97,7 @@
                                 data-i18n="nav.dash.ecommerce"> بانتظار المراجعة  </a>
                             </li>
                             <li><a class="menu-item" href="{{route('admin.ads.pendingpay')}}"
-                                data-i18n="nav.dash.ecommerce">لانتظار الدفع  </a>
+                                data-i18n="nav.dash.ecommerce">بانتظار الدفع  </a>
                             </li>
                             <li><a class="menu-item" href="{{route('admin.ads.active')}}"
                                 data-i18n="nav.dash.ecommerce"> النشطة  </a>
@@ -106,11 +106,11 @@
                                 data-i18n="nav.dash.ecommerce"> المنتهية  </a>
                             </li>
                             <li><a class="menu-item" href="{{route('admin.ads.cancel')}}"
-                                data-i18n="nav.dash.ecommerce"> الملغاة  </a>
+                                data-i18n="nav.dash.ecommerce"> بانتظار تعديل الملاحظات  </a>
                             </li>
-                            <li><a class="menu-item" href="{{route('admin.ads.create')}}"
+                            {{-- <li><a class="menu-item" href="{{route('admin.ads.create')}}"
                                 data-i18n="nav.dash.ecommerce">اضافة اعلان</a>
-                            </li>
+                            </li> --}}
                         </ul>
                 </li>
 
