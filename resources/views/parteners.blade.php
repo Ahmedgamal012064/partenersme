@@ -22,6 +22,12 @@ body{
 cursor: pointer;
 }
 
+.grid-container .logo:hover {
+  -ms-transform: scale(5.5); /* IE 9 */
+  -webkit-transform: scale(5.5); /* Safari 3-8 */
+  transform: scale(5.5);
+}
+
 img{
   width:15px;
   height:15px;
@@ -34,31 +40,32 @@ img{
 
 
 <div class="grid-container">
-  <?php for($i = 0 ; $i < 10000 ; $i++){?>
-     <div data-toggle="modal" data-target="#myModal<?php echo $i;?>">
-         <img src="{{asset('Frontend/ar/img/logo.png')}}"></div>
+<?php for($i = 0 ; $i < 10000 ; $i++){?>
+    <div data-toggle="modal" data-target="#myModal<?php echo $i;?>" class="logo">
+        <img src="{{asset('Frontend/ar/img/logo.png')}}">
+    </div>
 
 <!-- The Modal -->
 <div class="modal" id="myModal<?php echo $i;?>">
   <div class="modal-dialog">
     <div class="modal-content">
 
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">PartenersMe</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
+    <!-- Modal Header -->
+    <div class="modal-header">
+    <h4 class="modal-title">PartenersMe</h4>
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    </div>
 
-      <!-- Modal body -->
-      <div class="modal-body">
-        <img src="{{asset('Frontend/ar/img/logo.png')}}" style="width:150px;height:150px">
-      </div>
+    <!-- Modal body -->
+    <div class="modal-body">
+    <img src="{{asset('Frontend/ar/img/logo.png')}}" style="width:150px;height:150px">
+    </div>
 
-      <!-- Modal footer -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">اغلاق</button>
-          <a  href="http://two-tech.net" target="_blank" class="btn btn-success">زيارة المنصة</a>
-      </div>
+    <!-- Modal footer -->
+    <div class="modal-footer">
+    <button type="button" class="btn btn-danger" data-dismiss="modal">اغلاق</button>
+        <a  href="http://two-tech.net" target="_blank" class="btn btn-success">زيارة المنصة</a>
+    </div>
 
     </div>
   </div>

@@ -18,7 +18,7 @@ class User extends Authenticatable implements JWTSubject
      * @var array
      */
     protected $fillable = [
-        'name', 'email','phone','phone_veify','id_define','id_bussiness','coins','type', 'password',
+        'name', 'email','phone','phone_veify','id_define','photo','coins','type', 'password',
     ];
 
     /**
@@ -57,5 +57,11 @@ class User extends Authenticatable implements JWTSubject
     public function ads()
     {
         return $this->belongsToMany('App\Models\Ad','user_ad');
+    }
+
+
+    public function adv()
+    {
+        return $this->hasMany('App\Models\Ad','user_id','id');
     }
 }

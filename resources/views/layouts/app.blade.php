@@ -154,7 +154,7 @@
             <!-- For Mobile Device -->
             <div class="mobile-nav">
                 <a href="{{url('/')}}" class="logo">
-                    <img src="{{asset('Frontend/ar/img/logo.png')}}" alt="logo" style="height: 60px;">
+                    <img src="{{asset('Frontend/ar/img/logo.png')}}" alt="logo" style="height: 35px;">
                 </a>
             </div>
 
@@ -173,7 +173,7 @@
                                 <li class="nav-item">
                                     <a href="#about" class="nav-link">من نحن</a>
                                 </li>
-                                <li class="nav-item">
+                                {{-- <li class="nav-item">
                                     <a href="#" class="nav-link dropdown-toggle">سابقة الاعمال</a>
                                     <ul class="dropdown-menu">
                                         <li class="nav-item">
@@ -195,45 +195,63 @@
                                             <a href="" class="nav-link">تصميم الهوية التجارية</a>
                                         </li>
                                     </ul>
-                                </li>
+                                </li> --}}
                                 <li class="nav-item">
-                                    <a href="#services" class="nav-link dropdown-toggle">الخدمات</a>
+                                    <a href="" class="nav-link dropdown-toggle">الاعلانات</a>
                                     <ul class="dropdown-menu">
                                         <li class="nav-item">
-                                            <a href="" class="nav-link">إدارة وسائل التواصل الإجتماعي</a>
+                                            <a href="{{route('photo.ads')}}" class="nav-link">اعلانات الصور</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="" class="nav-link">تصميم وإستضافة المواقع</a>
+                                            <a href="{{route('videos.ads')}}" class="nav-link">اعلانات الفديوهات</a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a href="" class="nav-link">اعلانات جوجل ادوردز</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="" class="nav-link">إنتاج الفيديوهات</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="" class="nav-link">إنتاج فيديوهات الرسوم المتحركة</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="" class="nav-link">تصميم الهويات التجارية</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="" class="nav-link">كتابة المحتوى و SEO</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="" class="nav-link">نظام إدارة علاقات العملاء</a>
-                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{url('/')}}#services" class="nav-link dropdown-toggle">الخدمات</a>
+                                    <ul class="dropdown-menu">
+                                        @foreach (App\Models\Service::get() as $item)
+                                            <li class="nav-item">
+                                                <a href="{{rouet('services',$item->name)}}" class="nav-link">{{$item->name}}</a>
+                                            </li>
+                                        @endforeach
                                     </ul>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{route('parteners')}}" class="nav-link">شركائي المليون</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#contactus" class="nav-link">تواصل معنا</a>
+                                    <a href="{{url('/')}}#contactus" class="nav-link">تواصل معنا</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a href="{{route('login')}}" class="nav-link" style="color: #be632d !important;">سجل معنا</a>
-                                </li>
+                                @auth
+                                    <li class="nav-item">
+                                        <a href="#services" class="nav-link dropdown-toggle">{{ substr(Auth::user()->name,0,7) }}</a>
+                                        <ul class="dropdown-menu">
+                                            <li class="nav-item">
+                                                <a href="{{route('home')}}" class="nav-link">الصفحة الشخصية</a>
+                                            </li>
+                                            @if (Auth::user()->type == "company")
+                                                <li class="nav-item">
+                                                    <a href="" class="nav-link">اضافة اعلان</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a href="" class="nav-link">اعلاناتي</a>
+                                                </li>
+                                            @endif
+                                            <li class="nav-item">
+                                                <a href="" class="nav-link" onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">تسجيل الخروج</a>
+                                            </li>
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                                @csrf
+                                            </form
+                                        </ul>
+                                    </li>
+                                @else
+                                    <li class="nav-item">
+                                        <a href="{{route('login')}}" class="nav-link" style="color: #be632d !important;">سجل معنا</a>
+                                    </li>
+                                @endauth
                             </ul>
                         </div>
                     </nav>

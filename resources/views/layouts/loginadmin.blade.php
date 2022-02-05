@@ -147,5 +147,6 @@ $('.selected-flag').click(function(){
 $('input#phone').val($('.country-list .country.active').find('.dial-code').html());
 });
 </script>
+@yield('script')
 </body>
 </html>

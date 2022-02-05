@@ -171,4 +171,19 @@ class Controller extends BaseController
 
         return response()->json(['msg' => 'done']);
     }
+
+    public function refreshCaptcha()
+    {
+        return response()->json(['captcha'=> captcha_img()]);
+    }
+
+    public function photoads()
+    {
+        //
+    }
+
+    public function videoads()
+    {
+        //
+    }
 }
