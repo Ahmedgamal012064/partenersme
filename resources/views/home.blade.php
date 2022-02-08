@@ -34,12 +34,27 @@
                         <a href="" data-bs-toggle="modal" data-bs-target="#withdraw" style="color: #be632d">طلب سحب</a>
                     </div>
                     <!-- Start Modal -->
-                    <div class="modal fade" id="withdraw" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade @if (!empty($errors->all())) show @endif"
+                    id="withdraw" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    @if (!empty($errors->all()))
+                        style="display:block"
+                        aria-modal="true"
+                        role="dialog"
+                    @else
+                        aria-hidden="true"
+                        style="display:none"
+                    @endif>
                         <div class="modal-dialog">
                           <div class="modal-content">
                             <div class="modal-header">
                               <h5 class="modal-title" id="exampleModalLabel">طلب سحب الارباح</h5>
                             </div>
+                            @if (Auth::user()->coins < 50)
+                            <h4 class="text-info text-center">لايمكن سحب مبلغ اقل من 50 ريال</h4>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">اغلاق</button>
+                            </div>
+                            @else
                             <form action="{{route('post.withdraw')}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                             <div class="modal-body">
@@ -53,11 +68,10 @@
                                                         @else
                                                         رقم السجل التجاري
                                                 @endif</div>
-                                                <input type="number" name="id_define" id="id_define" class="form-control"
-                                                required data-error="برجاء ملئ الحقل"
+                                                <input type="number" name="id_defines" id="id_defines" class="form-control" required
                                                 placeholder="@if (Auth::user()->type == "user") رقم الهوية @else رقم السجل التجاري @endif"
-                                                value="{{old("id_define")}}">
-                                                @error('id_define')
+                                                value="{{old("id_defines")}}">
+                                                @error('id_defines')
                                                     <small class="text-danger">{{$message}}</small>
                                                 @enderror
                                             </div>
@@ -72,9 +86,9 @@
                                                     @else
                                                 صورة السجل التجاري
                                                 @endif</div>
-                                                <input type="file" name="photo" id="photo" class="form-control"
+                                                <input type="file" name="photos" id="photos" class="form-control"
                                                 required  accept="image/*">
-                                                @error('photo')
+                                                @error('photos')
                                                     <small class="text-danger">{{$message}}</small>
                                                 @enderror
                                             </div>
@@ -113,10 +127,14 @@
                                     </div>
                             </div>
                             <div class="modal-footer">
-                              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">اغلاق</button>
-                              <button type="submit" class="btn btn-success">ارسال</button>
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                                    @if (!empty($errors->all()))
+                                    onclick = "$('#withdraw').css('display','none')"
+                                    @endif>اغلاق</button>
+                                <button type="submit" class="btn btn-success">ارسال</button>
                             </div>
                         </form>
+                        @endif
                           </div>
                         </div>
                     </div>
@@ -130,7 +148,7 @@
                     @endif>
                     <div class="contact-card">
                         <i class="icofont-eye"></i>
-                        <a href="">{{Auth::user()->ads->count()}} رؤية</a>
+                        <a href="">{{Auth::user()->ads->count()}} مشاهدة</a>
                         <a href="{{route('photo.ads')}}" style="color: #be632d">مشاهدة المزيد</a>
                     </div>
                 </div>
@@ -246,14 +264,4 @@
         </div>
     </div>
 </section>
-<!-- Contact Section End -->
-
 @endsection
-
-
-{{--
-كدة المتبقي اضافة اعلان
-وعرض اعلانات الفديو والصور
-لما اليوزر يشوف الاعلان اتشيك لو كان عامل لوحن او مسجل معانا ولا وبعد كدة اظهر الكابتشا ويكسب كوين
-عرض  صفحة فواتير لطلبات السحب وامكانية طباعاتها عرض صفحة للاعلانات التي قام برؤيتها وكم ربح عل كل اعلان
---}}

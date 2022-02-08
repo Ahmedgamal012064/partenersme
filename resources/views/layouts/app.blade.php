@@ -44,6 +44,35 @@
         @notify_css
         @yield('style')
         <style>
+            .hungry .selection {
+                display: inline-block;
+                text-align:center;
+
+            }
+
+            .hungry .selection label {
+                display: inline-block;
+                width:10em;
+                background-color: #fd9148b5 ;
+                border-radius: 6px;
+                color: #ffffff;
+                padding: 0.5em;
+                cursor: pointer;
+            }
+
+            .hungry .selection label:hover {
+                background-color: #fd9148;
+            }
+
+            .hungry .selection input[type=radio] {
+                display: none;
+            }
+
+            .hungry .selection input[type=radio]:checked ~ label {
+                background-color: #024361;
+            }
+            </style>
+        <style>
             .float{
                 position:fixed;
                 width:60px;
@@ -232,10 +261,10 @@
                                             </li>
                                             @if (Auth::user()->type == "company")
                                                 <li class="nav-item">
-                                                    <a href="" class="nav-link">اضافة اعلان</a>
+                                                    <a href="{{route('add.ads')}}" class="nav-link">اضافة اعلان</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a href="" class="nav-link">اعلاناتي</a>
+                                                    <a href="{{route('all.ads')}}" class="nav-link">اعلاناتي</a>
                                                 </li>
                                             @endif
                                             <li class="nav-item">
