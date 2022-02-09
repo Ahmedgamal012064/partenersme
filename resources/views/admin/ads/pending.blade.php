@@ -44,7 +44,7 @@
                                 <div class="card-content collapse show">
                                     <div class="card-body card-dashboard">
                                         <table
-                                            class="table display nowrap table-striped table-bordered">{{--scroll-horizontal--}}
+                                            class="table display nowrap table-striped table-bordered scroll-horizontal">{{--scroll-horizontal--}}
                                             <thead class="">
                                             <tr>
                                                 <th>الاسم </th>
@@ -61,13 +61,51 @@
                                             @isset($ads )
                                                 @foreach($ads  as $ad )
                                                     <tr>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
+                                                        <td>{{$ad->name}}</td>
+                                                        <td>{{$ad->user->name}}</td>
+                                                        <td>{{$ad->plan->name}}</td>
+                                                        <td><a href="{{$ad->link_web}}">{{$ad->link_web}}</a></td>
+                                                        <td>{{$ad->date_publish}}</td>
+                                                        <td>{{$ad->price}}ريال</td>
+                                                        <td>
+                                                            <div class="btn-group" role="group" aria-label="Basic example">
+                                                            <a href="{{route('admin.ads.status',[$ad->id, 'waitpay'])}}"
+                                                                class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-0">موافقة وتحويل الدفع</a>
+
+                                                            <a href="" data-toggle="modal" data-target="#notes{{$ad->id}}"
+                                                                class="btn btn-outline-warning btn-min-width box-shadow-3 mr-1 mb-0">ارسال ملاجظة</a>
+
+
+                                                            <!-- Modal -->
+                                                            <div class="modal fade" id="notes{{$ad->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                <div class="modal-dialog" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLabel">ارسال ملاجظة</h5>
+                                                                    </div>
+                                                                <form action="{{route('admin.ads.status',[$ad->id, 'notes'])}}" method="GET">
+                                                                    @csrf
+                                                                    <div class="modal-body">
+                                                                            <div class="form-group">
+                                                                                <label for="exampleInputEmail1">الملاحظة</label>
+                                                                                <textarea class="form-control" placeholder="اكتب الملاحظة" name="note" required></textarea>
+                                                                                <small id="emailHelp" class="form-text text-muted">هنا يتم كتابة الملاحظة التي يتم ارسالها لصاحب الاعلان لمراجعتها لقبول الاعلان</small>
+                                                                            </div>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-danger" data-dismiss="modal">اغلاق</button>
+                                                                        <button type="submit" class="btn btn-success">ارسال</button>
+                                                                    </div>
+                                                                </form>
+                                                                </div>
+                                                                </div>
+                                                            </div>
+
+                                                            {{-- <a href="{{route('admin.ads.delete',$ad -> id)}}"
+                                                                class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">حذف</a> --}}
+
+                                                            </div>
+                                                        </td>
                                                     </tr>
                                                 @endforeach
                                             @endisset

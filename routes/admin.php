@@ -77,7 +77,6 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'auth:admin'], function ()
     ######################### End faqs Routes  ########################
     ######################### Begin ads Routes ########################
     Route::group(['prefix' => 'ads'], function () {
-        Route::get('/','AdsController@index') -> name('admin.ads');
         Route::get('/pending','AdsController@pending') -> name('admin.ads.pending');
         Route::get('/pending-pay','AdsController@pendingpay') -> name('admin.ads.pendingpay');
         Route::get('/active','AdsController@active') -> name('admin.ads.active');
@@ -88,7 +87,7 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'auth:admin'], function ()
         Route::get('edit/{id}','AdsController@edit') -> name('admin.ads.edit');
         Route::post('update/{id}','AdsController@update') -> name('admin.ads.update');
         Route::get('delete/{id}','AdsController@destroy') -> name('admin.ads.delete');
-        Route::post('changeStatus/{id}','AdsController@changeStatus') -> name('admin.ads.status');
+        Route::get('changeStatus/{id}/{status}','AdsController@changeStatus') -> name('admin.ads.status');
 
     });
     ######################### End ads Routes  ########################

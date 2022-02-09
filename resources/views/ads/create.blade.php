@@ -36,7 +36,11 @@
                                 <div class="hungry text-center">
                                     @foreach ($plans as $plan)
                                     <div class="selection">
-                                        <input id="pizza{{$plan->id}}" name="plan" type="radio" value="{{$plan->id}}">
+                                        <input id="pizza{{$plan->id}}" name="plan" type="radio" value="{{$plan->id}}" @if (old('plan') == $plan->id)
+                                            checked
+                                        @endif @if (empty(old('plan')) && $plan->first())
+                                        checked
+                                    @endif>
                                         <label for="pizza{{$plan->id}}">{{$plan->name}} <br> {{$plan->views}} مشاهدة <br> {{$plan->price}} ريال</label>
                                     </div>
                                     @endforeach
@@ -51,7 +55,7 @@
                                 <div class="form-group">
                                     <div class="help-block with-errors">اسم للاعلان</div>
                                     <input type="text" name="name" id="name" class="form-control"
-                                    required data-error="برجاء ملئ الحقل"
+                                    required
                                     placeholder="اسم للاعلان"
                                     value="{{old('name')}}">
                                     @error('name')
@@ -63,7 +67,7 @@
                                 <div class="form-group">
                                     <div class="help-block with-errors">صورة او فديو الاعلان</div>
                                     <input type="file" name="photo" id="photo" class="form-control"
-                                    required data-error="برجاء ملئ الحقل"  accept="video/*,image/*">
+                                    required accept="video/*,image/*">
                                     @error('photo')
                                         <small class="text-danger">{{$message}}</small>
                                     @enderror

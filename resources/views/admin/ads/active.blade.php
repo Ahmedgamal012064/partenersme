@@ -62,14 +62,19 @@
                                             @isset($ads )
                                                 @foreach($ads  as $ad )
                                                     <tr>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
+                                                        <td>{{$ad->name}}</td>
+                                                        <td>{{$ad->user->name}}</td>
+                                                        <td>{{$ad->plan->name}}</td>
+                                                        <td><a href="{{$ad->link_web}}">{{$ad->link_web}}</a></td>
+                                                        <td>{{$ad->date_publish}}</td>
+                                                        <td>{{$ad->price}}ريال</td>
+                                                        <td>{{$ad->views}}مشاهدة</td>
+                                                        <td>
+                                                            <div class="btn-group" role="group" aria-label="Basic example">
+                                                                <a href=""
+                                                                    class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-0">تفاصيل</a>
+                                                            </div>
+                                                        </td>
                                                     </tr>
                                                 @endforeach
                                             @endisset

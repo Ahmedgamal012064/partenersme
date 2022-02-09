@@ -90,9 +90,6 @@
                                 class="badge badge badge-dark  badge-pill float-right mr-2">{{App\Models\Ad::count()}}</span>
                         </a>
                         <ul class="menu-content">
-                            <li><a class="menu-item" href="{{route('admin.ads')}}"
-                                data-i18n="nav.dash.ecommerce"> عرض الكل  </a>
-                            </li>
                             <li><a class="menu-item" href="{{route('admin.ads.pending')}}"
                                 data-i18n="nav.dash.ecommerce"> بانتظار المراجعة  </a>
                             </li>

@@ -66,17 +66,19 @@ Route::group( [ 'prefix' => 'LaravelLocalization'::setLocale(),
     Route::get('/home', 'HomeController@index')->name('home');
     Route::post('/update-profile', 'HomeController@updateprofile')->name('post.profile');
 
-    Route::get('/All-Ads', 'HomeController@allads')->name('all.ads');
-    Route::get('/Add-Advertise', 'HomeController@addads')->name('add.ads');
-    Route::post('/Post-Advertise', 'HomeController@postadd')->name('post.ads');
-
     Route::post('/Withdraw-Mony', 'HomeController@withdrawmoney')->name('post.withdraw');
+
+    //Ads
+    Route::get('/My-Ads', 'AdsController@allads')->name('all.ads');
+    Route::get('/Add-Advertise', 'AdsController@addads')->name('add.ads');
+    Route::post('/Post-Advertise', 'AdsController@postadd')->name('post.ads');
+    Route::post('/View-Advertise', 'AdsController@viewadd')->name('post.view');
 //});
 
 
 /*
-    كدة المتبقي اضافة اعلان
-    وعرض اعلانات الفديو والصور
     لما اليوزر يشوف الاعلان اتشيك لو كان عامل لوحن او مسجل معانا ولا وبعد كدة اظهر الكابتشا ويكسب كوين
     عرض  صفحة فواتير لطلبات السحب وامكانية طباعاتها عرض صفحة للاعلانات التي قام برؤيتها وكم ربح عل كل اعلان
+
+    لوحة الادمن اعرض الاعلانات بانتظار التفعيل واكشنات الاعلانات والسحوبات
 */

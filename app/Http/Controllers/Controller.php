@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ad;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -179,11 +180,43 @@ class Controller extends BaseController
 
     public function photoads()
     {
-        //
+        if(Auth::check()){
+            $user = User::find(Auth::id());
+            $advs = [];
+            foreach ($user->ads as $ad) {
+                $advs[] = $ad->pivot->ad_id;
+            }
+            if(!empty($advs)){
+                $ads = Ad::whereNotIn('id',$advs)->where('user_id','!=',Auth::id())->where('type','photo')->where('status','active')->inRandomOrder()->paginate(9);
+                return view('ads.photo' ,compact('ads'));
+            }else{
+                $ads = Ad::where('type','photo')->where('user_id','!=',Auth::id())->where('status','active')->inRandomOrder()->paginate(9);
+                return view('ads.photo' ,compact('ads'));
+            }
+        }else{
+            $ads = Ad::where('type','photo')->where('status','active')->inRandomOrder()->paginate(9);
+            return view('ads.photo' ,compact('ads'));
+        }
     }
 
     public function videoads()
     {
-        //
+        if(Auth::check()){
+            $user = User::find(Auth::id());
+            $advs = [];
+            foreach ($user->ads as $ad) {
+                $advs[] = $ad->pivot->ad_id;
+            }
+            if(!empty($advs)){
+                $ads = Ad::whereNotIn('id',$advs)->where('user_id','!=',Auth::id())->where('type','video')->where('status','active')->inRandomOrder()->paginate(9);
+                return view('ads.video' ,compact('ads'));
+            }else{
+                $ads = Ad::where('type','video')->where('user_id','!=',Auth::id())->where('status','active')->inRandomOrder()->paginate(9);
+                return view('ads.video' ,compact('ads'));
+            }
+        }else{
+            $ads = Ad::where('type','video')->where('status','active')->inRandomOrder()->paginate(9);
+            return view('ads.video' ,compact('ads'));
+        }
     }
 }
