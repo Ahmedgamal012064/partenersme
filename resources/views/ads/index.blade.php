@@ -35,7 +35,7 @@
                                 <img src="{{asset($ad->photo)}}" alt="ad image" style="width:510px;height:200px">
                             @endif
                             @if ($ad->type == "video")
-                                <video width="510px" height="200px" autoplay muted>
+                                <video width="360px" height="200px"autoplay muted>
                                     <source src="{{asset($ad->photo)}}" type="video/mp4">
                                     <source src="{{asset($ad->photo)}}" type="video/ogg">
                                     Your browser does not support the video tag.

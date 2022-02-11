@@ -29,23 +29,22 @@
                 <div class="col-lg-4 col-sm-6 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">
                     <div class="blog-card">
                         <div class="blog-img">
-                            <a href="">
-                                <video width="510px" height="200px" autoplay muted>
+                            <a href="" data-bs-toggle="modal" data-bs-target="#add{{$ad->id}}">
+                                <video width="360px" height="200px" autoplay muted>
                                     <source src="{{asset($ad->photo)}}" type="video/mp4">
                                     <source src="{{asset($ad->photo)}}" type="video/ogg">
-                                    Your browser does not support the video tag.
                                 </video>
                             </a>
                             <div class="blog-btn">
-                                <a href="#">
-                                    <i class="icofont-eye"></i>
+                                <a href="" data-bs-toggle="modal" data-bs-target="#add{{$ad->id}}">
+                                    <i class="icofont-eye "></i>
                                     {{-- اضغط واربح --}}
                                 </a>
                             </div>
                         </div>
                         <div class="blog-text">
                             <h3>
-                                <a href="">{{$ad->name}}</a>
+                                <a href="" data-bs-toggle="modal" data-bs-target="#add{{$ad->id}}">{{$ad->name}}</a>
                             </h3>
                             <ul style="display: inline-flex">
                                 @if (!empty($ad->link_web))
@@ -71,12 +70,59 @@
                                 @endif
                             </ul>
                             <div class="blog-btn text-left">
-                                <i class="icofont-eye"></i>
                                 <a href="">
                                     {{$ad->views}}  مشاهدة
                                 </a>
                             </div>
                         </div>
+                        <!--Start Modal -->
+                        <div class="modal fade" id="add{{$ad->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">{{$ad->name}}</h5>
+                                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                </div>
+                                <form action="{{route('post.view',$ad->id)}}" method="POST">
+                                    @csrf
+                                    <div class="modal-body">
+                                        <video width="460px" height="300px" controls>
+                                            <source src="{{asset($ad->photo)}}" type="video/mp4">
+                                            <source src="{{asset($ad->photo)}}" type="video/ogg">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                        @auth
+                                            <span class="captcha">{!! captcha_img() !!}</span>
+                                            <button type="button" class="btn btn-info btn-refresh btn-sm">
+                                            <i class="icofont-refresh"></i>
+                                            </button>
+                                            <div class="form-group">
+                                                <input type="text" name="captcha" id="captcha" class="form-control"
+                                                required
+                                                placeholder="ادخل كود التحقق"
+                                                value="{{old('captcha')}}">
+                                                @error('captcha')
+                                                    <small class="text-danger">{{$message}}</small>
+                                                @enderror
+                                            </div>
+                                            @else
+                                        @endauth
+                                    </div>
+                                    <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">اغلاق</button>
+                                    @auth
+                                    <button type="submit" class="btn btn-primary">انقر لتربح</button>
+                                        @else
+                                    <button type="button" class="btn btn-primary" onclick="window.location.href='{{route('login')}}'">لتربح سجل معنا</button>
+                                    @endauth
+                                    </div>
+                                </form>
+                            </div>
+                            </div>
+                        </div>
+                    {{-- End Model --}}
                     </div>
                 </div>
             @empty

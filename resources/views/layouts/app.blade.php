@@ -247,7 +247,7 @@
                                     </ul>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{route('parteners')}}" class="nav-link">شركائي المليون</a>
+                                    <a href="{{route('parteners')}}" target="_blank" class="nav-link">شركائي المليون</a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{url('/')}}#contactus" class="nav-link">تواصل معنا</a>
@@ -574,5 +574,7 @@
     event.notification.close();
     });
     </script>
+
+@yield('script')
 </body>
 </html>

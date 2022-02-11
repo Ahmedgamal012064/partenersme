@@ -72,7 +72,7 @@ Route::group( [ 'prefix' => 'LaravelLocalization'::setLocale(),
     Route::get('/My-Ads', 'AdsController@allads')->name('all.ads');
     Route::get('/Add-Advertise', 'AdsController@addads')->name('add.ads');
     Route::post('/Post-Advertise', 'AdsController@postadd')->name('post.ads');
-    Route::post('/View-Advertise', 'AdsController@viewadd')->name('post.view');
+    Route::post('/View-Advertise/{id}', 'AdsController@viewadd')->name('post.view');
 //});
 
 

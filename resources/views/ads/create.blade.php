@@ -99,7 +99,7 @@
                                 <div class="form-group">
                                     <div class="help-block with-errors">هاتف الواتس اب للتواصل</div>
                                     <input type="tel" name="phone" id="phone" class="form-control"
-                                    placeholder="هاتف الواتس اب للتواصل" value="{{old('phone')}}">
+                                    placeholder="هاتف الواتس اب للتواصل" value="{{old('phone')}}" dir="ltr">
                                     @error('phone')
                                         <small class="text-danger">{{$message}}</small>
                                     @enderror

@@ -56,7 +56,7 @@ class AdsController extends Controller
         if(in_array(pathinfo($request->photo->getClientOriginalName() , PATHINFO_EXTENSION) , $videos))
         {
             $validator = Validator::make($request->all(), [
-                'photo'         => 'required|4096' ,
+                'photo'         => 'required|max:4096' ,
             ]);
 
             if ($validator->fails()) {
