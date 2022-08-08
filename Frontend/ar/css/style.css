@@ -34,11 +34,11 @@ This files table contents are outlined below>>>>>
 ** - Blog Page CSS
 ** - Contact Page CSS
 */
-@import url("https://fonts.googleapis.com/css?family=Lato:400,700|Titillium+Web:400,700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&display=swap');
 /* Color Variable */
 /* Font Variable */
 body {
-  font-family: "Lato", sans-serif;
+ font-family: 'Cairo', sans-serif;
   color: #545454;
   line-height: 1.8;
   font-size: 17px;
@@ -276,6 +276,7 @@ h3 {
   padding: 5px 0;
   margin: 0 0 0 40px;
   font-weight: 600;
+  font-size: 16px;
 }
 
 .navbar-area .main-nav .navbar .navbar-nav .nav-item a:hover {
@@ -413,7 +414,7 @@ h3 {
   font-size: 75px;
   font-weight: 700;
   color: #ffffff;
-  font-family: "Titillium Web", sans-serif;
+  font-family: 'Cairo', sans-serif;
   margin-bottom: 30px;
 }
 
@@ -1835,7 +1836,7 @@ h3 {
 .banner-style-two .banner-text h1 {
   font-size: 60px;
   color: #ffffff;
-  font-family: "Titillium Web", sans-serif;
+  font-family: 'Cairo', sans-serif;
   margin-bottom: 30px;
   font-weight: 700;
 }
@@ -2601,7 +2602,7 @@ h3 {
   font-size: 50px;
   color: #ffffff;
   font-weight: 700;
-  font-family: "Titillium Web", sans-serif;
+  font-family: 'Cairo', sans-serif;
   margin-bottom: 10px;
 }
 

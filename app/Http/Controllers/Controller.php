@@ -187,14 +187,14 @@ class Controller extends BaseController
                 $advs[] = $ad->pivot->ad_id;
             }
             if(!empty($advs)){
-                $ads = Ad::whereNotIn('id',$advs)->where('user_id','!=',Auth::id())->where('type','photo')->where('status','active')->inRandomOrder()->paginate(9);
+                $ads = Ad::whereNotIn('id',$advs)->where('user_id','!=',Auth::id())->where('type','photo')->where('status','active')->inRandomOrder()->paginate(12);
                 return view('ads.photo' ,compact('ads'));
             }else{
-                $ads = Ad::where('type','photo')->where('user_id','!=',Auth::id())->where('status','active')->inRandomOrder()->paginate(9);
+                $ads = Ad::where('type','photo')->where('user_id','!=',Auth::id())->where('status','active')->inRandomOrder()->paginate(12);
                 return view('ads.photo' ,compact('ads'));
             }
         }else{
-            $ads = Ad::where('type','photo')->where('status','active')->inRandomOrder()->paginate(9);
+            $ads = Ad::where('type','photo')->where('status','active')->inRandomOrder()->paginate(12);
             return view('ads.photo' ,compact('ads'));
         }
     }

@@ -3,35 +3,33 @@
 @section('content')
 <!-- Banner Section Start -->
 <div class="banner-slider owl-carousel owl-theme">
-    <div class="banner-item banner-bg-one">
-        <div class="d-table">
-            <div class="d-table-cell">
-                <div class="container">
-                    <div class="banner-text">
-                        <h1>رواد مجال التسويق الالكتروني</h1>
-                        <p>Operations deal with the way the vehicles are operated, and the procedures set for this purpose, including financing, legalities, and policies. In the transport industry, operations and ownership of infrastructure can be either public.</p>
+    <!--<div class="banner-item banner-bg-one">-->
+    <!--    <div class="d-table">-->
+    <!--        <div class="d-table-cell">-->
+    <!--            <div class="container">-->
+    <!--                <div class="banner-text">-->
+    <!--                    <h1>رواد مجال التسويق الالكتروني</h1>-->
+                        <!--<p>Operations deal with the way the vehicles are operated, and the procedures set for this purpose, including financing, legalities, and policies. In the transport industry, operations and ownership of infrastructure can be either public.</p>-->
 
-                        <div class="banner-btn">
-                            <a href="#" class="default-btn">تواصل معنا</a>
-                            <a href="https://youtu.be/kpanwiv9fsw" class="default-btn popup-youtube">رؤية فديو تعريفي</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!--                    <div class="banner-btn">-->
+    <!--                        <a href="#" class="default-btn">تواصل معنا</a>-->
+    <!--                        <a href="https://youtu.be/kpanwiv9fsw" class="default-btn popup-youtube">رؤية فديو تعريفي</a>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </div>-->
+    <!--</div>-->
 
     <div class="banner-item banner-bg-two">
         <div class="d-table">
             <div class="d-table-cell">
                 <div class="container">
                     <div class="banner-text">
-                        <h1>We Provide High-quality Transport Service</h1>
-                        <p>Operations deal with the way the vehicles are operated, and the procedures set for this purpose, including financing, legalities, and policies. In the transport industry, operations and ownership of infrastructure can be either public.</p>
-
+                       <h1>{{__('main.Digital Marketing Agency')}}</h1>
                         <div class="banner-btn">
-                            <a href="#" class="default-btn">سحل معنا</a>
-                            <a href="https://youtu.be/kpanwiv9fsw" class="default-btn popup-youtube">رؤية فديو تعريفي</a>
+                            <a href="#" class="default-btn">{{__('main.register')}}</a>
+                            <a href="https://youtu.be/kpanwiv9fsw" class="default-btn popup-youtube">{{__('main.Video about us')}}</a>
                         </div>
                     </div>
                 </div>
@@ -50,7 +48,7 @@
                     <i class="icofont-fast-delivery"></i>
                     <span>87</span>
                     <h3>عمل منفذ</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
+                    <!--<p>Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>-->
                 </div>
             </div>
 
@@ -59,7 +57,7 @@
                     <i class="icofont-location-pin"></i>
                     <span>120</span>
                     <h3>مقر</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
+                    <!--<p>Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>-->
                 </div>
             </div>
 
@@ -68,7 +66,7 @@
                     <i class="icofont-users-alt-3"></i>
                     <span>3.2K</span>
                     <h3>شركاء العمل</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
+                    <!--<p>Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>-->
                 </div>
             </div>
 
@@ -77,7 +75,7 @@
                     <i class="icofont-thumbs-up"></i>
                     <span>27</span>
                     <h3>سنين خبرة</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
+                    <!--<p>Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>-->
                 </div>
             </div>
         </div>
@@ -91,45 +89,42 @@
         <div class="row align-items-center">
             <div class="col-lg-5 wow fadeInUp" data-wow-duration="1s">
                 <div class="about-img">
-                    <img src="{{asset('Frontend/ar/img/about/1.jpg')}}" alt="about image">
+                    <img src="{{asset('Frontend/ar/img/about/1.png')}}" alt="about image">
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="about-text">
                     <div class="section-title">
-                        <span>من نحن</span>
-                        <h2>يسعدنا ان نعرفكم بأهافنا ورؤيتنا ورسالتنا التي نسعي اليها</h2>
+                        <span style="font-size:25px">من نحن</span>
+                        <h2>وكالة تسويقية متكاملة "PM Partners Me"، (إعلان، إدارة إعلام، تسويق رقمي)</h2>
                     </div>
 
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" id="about-tab" data-bs-toggle="tab" href="#about" role="tab" aria-controls="about" aria-selected="true">الرؤية</a>
+                            <a class="nav-link active" id="about-tab" data-bs-toggle="tab" href="#about" role="tab" aria-controls="about" aria-selected="true" style="font-size: 22px;">الرؤية</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="mission-tab" data-bs-toggle="tab" href="#mission" role="tab" aria-controls="mission" aria-selected="false">الرسالة</a>
+                            <a class="nav-link" id="mission-tab" data-bs-toggle="tab" href="#mission" role="tab" aria-controls="mission" aria-selected="false" style="font-size: 22px;">الرسالة</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="goal-tab" data-bs-toggle="tab" href="#goal" role="tab" aria-controls="goal" aria-selected="false">الهدف</a>
+                            <a class="nav-link" id="goal-tab" data-bs-toggle="tab" href="#goal" role="tab" aria-controls="goal" aria-selected="false" style="font-size: 22px;">الهدف</a>
                         </li>
                     </ul>
 
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="about" role="tabpanel" aria-labelledby="about-tab">
-                            <p>Found parents would couldn't said on. End is partiality which uniforms, the fundamental; All luxury. Dissolute small a heavy word small big been time small caught guest movement be will a are where at the front it is meet been sleep spineless, were finds pointed secure in a success.</p>
-
-                            <p>Of pros, the but so, from ill to that good in the trying everyone. That, feedback there made he was may simple, it is yet a own blind you ago hand, were finds pointed secure in a success.
+                            <p>
+                                تتمثل رؤية "PM Partners Me" في إنشاء وكالة إعلانات ذات مستوى عالمي ومعيار لن يتم قبول خدماتها وعلامتها التجارية في المملكة العربية السعودية فحسب، بل في أجزاء أخرى من العالم أيضًا.
                             </p>
                         </div>
                         <div class="tab-pane fade" id="mission" role="tabpanel" aria-labelledby="mission-tab">
-                            <p>Found parents would couldn't said on. End is partiality which uniforms, the fundamental; All luxury. Dissolute small a heavy word small big been time small caught guest movement be will a are where at the front its meet been sleep spineless, were finds pointed secure in a success.</p>
-
-                            <p>Of pros the but so, from ill to that good in the trying everyone. That, feedback there made he was may simple, it is yet a own blind you ago hand, were finds pointed secure in a success.
+                            <p>
+                                رسالة "PM Partners Me" هي تقديم خدمات إعلانية إحترافية وإبداعية للغاية لتحقيق النتائج المرجوة من هذه الخدمات وغيرها التي ستساعد الشركات والأفراد والمنظمات غير الربحية في الترويج لعلاماتهم التجارية والوصول إلى مجموعة واسعة من العملاء المحتملين في جميع أنحاء العالم.
                             </p>
                         </div>
                         <div class="tab-pane fade" id="goal" role="tabpanel" aria-labelledby="goal-tab">
-                            <p>Found parents would couldn't said on. End is partiality which uniforms, the fundamental; All luxury. Dissolute small a heavy word small big been time small caught guest movement be will a are where at the front it is meet been sleep spineless, were finds pointed secure in a success.</p>
-
-                            <p>Of pros the but so, from ill to that good in the trying everyone. That, feedback there made he was may simple, it is yet a own blind you ago hand, were finds pointed secure in a success.
+                            <p>
+                                هدف "PM Partners Me" أن نصبح إحدى الوكالات الإعلانية التسويقية الرقمية الرائدة في الوطن العربي، كما نهدف لبناء وكالة إعلانية رقمية يمكنها التنافس بشكل إيجابي مع العلامات التجارية الرائدة الأخرى في صناعة وكالات الإعلان.
                             </p>
                         </div>
                     </div>
@@ -144,8 +139,8 @@
 <section class="transport-section pb-70"  id="services">
     <div class="container">
         <div class="section-title text-center">
-            <span>خدماتنا</span>
-            <h2>We Provide Products All over The World</h2>
+                 <h2>خدماتنا</h2>
+            <!--<h2>We Provide Products All over The World</h2>-->
         </div>
 
         <div class="row">
@@ -155,13 +150,13 @@
                         <img src="{{asset('Frontend/ar/img/services/1.jpg')}}" alt="transport image">
                     </div>
                     <div class="transport-text">
-                        <i class="icofont-airplane-alt"></i>
-                        <h3>Air Freight</h3>
-                        <p>A cargo aircraft also known as freight aircraft, freighter, airlifter or cargo jet is a fixed-wing aircraft that is designed.</p>
+                        <!--<i class="icofont-bars"></i>-->
+                        <h3>خدمات التسويق الرقمي</h3>
+                        <!--<p>A cargo aircraft also known as freight aircraft, freighter, airlifter or cargo jet is a fixed-wing aircraft that is designed.</p>-->
 
-                        <div class="theme-btn">
-                            <a href="service-details.html" class="default-btn">Read More</a>
-                        </div>
+                        <!--<div class="theme-btn">-->
+                        <!--    <a href="service-details.html" class="default-btn">Read More</a>-->
+                        <!--</div>-->
                     </div>
                 </div>
             </div>
@@ -172,13 +167,13 @@
                         <img src="{{asset('Frontend/ar/img/services/2.jpg')}}" alt="transport image">
                     </div>
                     <div class="transport-text">
-                        <i class="icofont-truck-loaded"></i>
-                        <h3>Road Freight</h3>
-                        <p>A cargo aircraft also known as freight aircraft, freighter, airlifter or cargo jet is a fixed-wing aircraft that is designed.</p>
+                        <!--<i class="icofont-bill"></i>-->
+                        <h3>خدمات الانتاج الإعلامي<h3>
+                        <!--<p>A cargo aircraft also known as freight aircraft, freighter, airlifter or cargo jet is a fixed-wing aircraft that is designed.</p>-->
 
-                        <div class="theme-btn">
-                            <a href="service-details.html" class="default-btn">Read More</a>
-                        </div>
+                        <!--<div class="theme-btn">-->
+                        <!--    <a href="service-details.html" class="default-btn">Read More</a>-->
+                        <!--</div>-->
                     </div>
                 </div>
             </div>
@@ -189,13 +184,13 @@
                         <img src="{{asset('Frontend/ar/img/services/3.jpg')}}" alt="transport image">
                     </div>
                     <div class="transport-text">
-                        <i class="icofont-sail-boat-alt-1"></i>
-                        <h3>Ocean Freight</h3>
-                        <p>A cargo aircraft also known as freight aircraft, freighter, airlifter or cargo jet is a fixed-wing aircraft that is designed.</p>
+                        <!--<i class="icofont-address-book"></i>-->
+                        <h3>خدمات البرمجة</h3>
+                        <!--<p>A cargo aircraft also known as freight aircraft, freighter, airlifter or cargo jet is a fixed-wing aircraft that is designed.</p>-->
 
-                        <div class="theme-btn">
-                            <a href="ocean-freight.html" class="default-btn">Read More</a>
-                        </div>
+                        <!--<div class="theme-btn">-->
+                        <!--    <a href="ocean-freight.html" class="default-btn">Read More</a>-->
+                        <!--</div>-->
                     </div>
                 </div>
             </div>
@@ -208,68 +203,37 @@
     <div class="choose-style-two pb-70">
         <div class="container">
             <div class="section-title text-center">
-                <h2>مايميز شركائي عن غيرها</h2>
+                <h2>قيمنا</h2>
             </div>
 
             <div class="row align-items-center">
-                <div class="col-lg-3">
                     <div class="row">
-                        <div class="col-lg-12 col-sm-4 wow fadeInUp" data-wow-duration="1s">
+                        <div class="col-lg-4 col-sm-4 wow fadeInUp" data-wow-duration="1s">
                             <div class="choose-card">
-                                <i class="icofont-fast-delivery"></i>
-                                <h3>سرعة تنفيذ واستلام العمل</h3>
+                                <i class="icofont-clock-time"></i>
+                                <h3>الألتزام بالمواعيد</h3>
                             </div>
                         </div>
-                        <div class="col-lg-12 col-sm-4 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
+                        <div class="col-lg-4 col-sm-4 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
                             <div class="choose-card">
                                 <i class="icofont-ssl-security"></i>
-                                <h3>حماية بيانات الشركاء</h3>
+                                <h3>الخصوصية بالعمل</h3>
                             </div>
                         </div>
-                        <div class="col-lg-12 col-sm-4 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s">
+                        <div class="col-lg-4 col-sm-4 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s">
                             <div class="choose-card">
                                 <i class="icofont-diamond"></i>
-                                <h3>الاسعار التنافسية </h3>
+                                <h3>انتاج اعمال ابداعية</h3>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="col-lg-6 wow fadeInUp">
-                    <div class="why-choose-image">
-                        <img src="{{asset('Frontend/ar/img/logo.png')}}" alt="why Choose image">
-                    </div>
-                </div>
-
-                <div class="col-lg-3">
-                    <div class="row">
-                        <div class="col-lg-12 col-sm-4 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".6s">
-                            <div class="choose-card">
-                                <i class="icofont-ui-browser"></i>
-                                <h3>الامان والسرية</h3>
-                            </div>
-                        </div>
-                        <div class="col-lg-12 col-sm-4 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".7s">
-                            <div class="choose-card">
-                                <i class="icofont-live-support"></i>
-                                <h3>24/7 دعم</h3>
-                            </div>
-                        </div>
-                        <div class="col-lg-12 col-sm-4 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s">
-                            <div class="choose-card">
-                                <i class="icofont-like"></i>
-                                <h3>أعلي جودة عمل</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
     <!-- Why Choose Section End -->
 
 
-<!-- Get Quote Section Start -->
+<!-- Get Quote Section Start 
 <div class="get-quote-section quote-bg pt-100 pb-100">
     <div class="container">
         <div class="row align-items-center">
@@ -353,14 +317,13 @@
         <div class="line"></div>
     </div>
 </div>
-<!-- Get Quote Section End -->
+Get Quote Section End -->
 
-<!-- Worker Section Start -->
+<!-- Worker Section Start
 <section class="worker-section pt-100 pb-70" id="team">
     <div class="container">
         <div class="section-title text-center">
-            <span>الفريق</span>
-            <h2>شركائي النجاح</h2>
+            <h2>فريق</h2>
         </div>
 
         <div class="row">
@@ -400,23 +363,23 @@
                 </div>
             </div>
 
-            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".6s">
+             <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s">
                 <div class="worker-card">
                     <div class="worker-img">
-                        <img src="{{asset('Frontend/ar/img/worker/4.jpg')}}" alt="worker image">
+                        <img src="{{asset('Frontend/ar/img/worker/3.jpg')}}" alt="worker image">
                     </div>
                     <div class="worker-text">
-                        <h3>Jackson</h3>
-                        <p>Road Freight Collector</p>
+                        <h3>أحمد جمال</h3>
+                        <p>مسوق</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</section>
+</section>  -->
 <!-- Worker Section End -->
 
-<!-- Feedback Section Strat -->
+<!-- Feedback Section Strat 
 <section class="feedback-section feedback-bg pt-100">
     <div class="container">
         <div class="section-title text-center">
@@ -454,33 +417,33 @@
         </div>
     </div>
 </section>
-<!-- Feedback Section End -->
+ Feedback Section End -->
 
-<!-- Company Section Start -->
+<!-- Company Section Start 
 <div class="company-section">
     <div class="container">
         <div class="company-slider owl-carousel owl-theme">
             <div class="company-logo">
-                <a href="#"><img src="{{asset('Frontend/ar/img/company/1.png')}}" alt="logo"></a>
+                <a href="#"><img src="{{asset('Frontend/ar/img/logo.png')}}" alt="logo"></a>
             </div>
             <div class="company-logo">
-                <a href="#"><img src="{{asset('Frontend/ar/img/company/2.png')}}" alt="logo"></a>
+                <a href="#"><img src="{{asset('Frontend/ar/img/logo.png')}}" alt="logo"></a>
             </div>
             <div class="company-logo">
-                <a href="#"><img src="{{asset('Frontend/ar/img/company/3.png')}}" alt="logo"></a>
+                <a href="#"><img src="{{asset('Frontend/ar/img/logo.png')}}" alt="logo"></a>
             </div>
             <div class="company-logo">
-                <a href="#"><img src="{{asset('Frontend/ar/img/company/4.png')}}" alt="logo"></a>
+                <a href="#"><img src="{{asset('Frontend/ar/img/logo.png')}}" alt="logo"></a>
             </div>
             <div class="company-logo">
-                <a href="#"><img src="{{asset('Frontend/ar/img/company/5.png')}}" alt="logo"></a>
+                <a href="#"><img src="{{asset('Frontend/ar/img/logo.png')}}" alt="logo"></a>
             </div>
         </div>
     </div>
 </div>
-<!-- Company Section End -->
+ Company Section End -->
 
-<!-- Blog Section Start -->
+<!-- Blog Section Start 
 <section class="blog-section pt-100 pb-70" id="blogs">
     <div class="container">
         <div class="section-title text-center">
@@ -572,7 +535,7 @@
         </div>
     </div>
 </section>
-<!-- Blog Section End -->
+ Blog Section End -->
 
 
 <!-- Contact Card Section Start
@@ -614,7 +577,11 @@
     <div class="container">
         <div class="section-title text-center">
             <h2>يسعدنا تواصلكم معنا</h2>
-            <p>Found parents would couldn't said on. That, feedback there made he was may blind you simple, its yet a own blind you ago hand.</p>
+            <p>
+                أشترك اليوم وإبدأ لإنشاء حملة الدفع لكل مشاهدة PPV على منصة (شركائي "PM Partners Me") نظام PMA""
+
+لديكم استفسارات أخرى لا تتردد في طرحها فريق العمل في خدمتكم.
+            </p>
         </div>
 
         <div class="row">

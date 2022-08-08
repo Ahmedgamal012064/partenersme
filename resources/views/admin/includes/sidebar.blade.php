@@ -55,7 +55,7 @@
 
                 <li class="nav-item">
                     <a href=""><i class="la la-building"></i>
-                            <span class="menu-title" data-i18n="nav.dash.main">المؤسسات  </span>
+                            <span class="menu-title" data-i18n="nav.dash.main">المنشآت التجارية  </span>
                             <span
                                 class="badge badge badge-primary  badge-pill float-right mr-2">{{App\User::where('type','company')->count()}}</span>
                         </a>
@@ -64,7 +64,7 @@
                                 data-i18n="nav.dash.ecommerce"> عرض الكل  </a>
                             </li>
                             <li><a class="menu-item" href="{{route('admin.companies.create')}}"
-                                data-i18n="nav.dash.ecommerce">اضافة مؤسسة</a>
+                                data-i18n="nav.dash.ecommerce">اضافة منشأة</a>
                             </li>
                         </ul>
                 </li>
@@ -129,7 +129,7 @@
 
                 <li class="nav-item">
                     <a href=""><i class="la la-male"></i>
-                            <span class="menu-title" data-i18n="nav.dash.main">شركائي المليون </span>
+                            <span class="menu-title" data-i18n="nav.dash.main">الدليل التجاري الرقمي </span>
                             <span
                                 class="badge badge badge-dark  badge-pill float-right mr-2">{{App\Models\Partener::count()}}</span>
                         </a>
@@ -138,7 +138,7 @@
                                 data-i18n="nav.dash.ecommerce"> عرض الكل  </a>
                             </li>
                             <li><a class="menu-item" href="{{route('admin.parteners.create')}}"
-                                data-i18n="nav.dash.ecommerce">اضافة شريك</a>
+                                data-i18n="nav.dash.ecommerce">اضافة </a>
                             </li>
                         </ul>
                 </li>

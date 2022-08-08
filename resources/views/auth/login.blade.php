@@ -21,7 +21,7 @@
                 @include('admin.includes.alerts.success')
                 <div class="card-content">
                     <div class="card-body">
-                        <form class="form-horizontal form-simple" action="{{route('login')}}" method="post" novalidate>
+                        <form class="form-horizontal form-simple" action="{{route('login')}}" method="POST" novalidate>
                             @csrf
                             <fieldset class="form-group position-relative  mb-1">
                                 <input type="tel" name="phone" class="form-control form-control-lg input-lg"

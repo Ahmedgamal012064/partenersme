@@ -26,7 +26,7 @@
         </div>
         <div class="row">
             @forelse ($ads as $ad)
-                <div class="col-lg-4 col-sm-6 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">
                     <div class="blog-card">
                         <div class="blog-img">
                             <a href="" data-bs-toggle="modal" data-bs-target="#add{{$ad->id}}">
@@ -95,11 +95,11 @@
                                                 <i class="icofont-refresh"></i>
                                                 </button>
                                                 <div class="form-group">
-                                                    <input type="text" name="captcha" id="captcha" class="form-control"
+                                                    <input type="text" name="captcha{{$ad->id}}" id="captcha" class="form-control"
                                                     required
                                                     placeholder="ادخل كود التحقق"
-                                                    value="{{old('captcha')}}">
-                                                    @error('captcha')
+                                                    value="{{old('captcha'.$ad->id)}}">
+                                                    @error('captcha{{$ad->id}}')
                                                         <small class="text-danger">{{$message}}</small>
                                                     @enderror
                                                 </div>

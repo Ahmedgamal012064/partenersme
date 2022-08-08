@@ -161,6 +161,15 @@
                     </div>
                 </div>
             @endif
+              @if (Auth::user()->type == "marketer")
+                <div class="col-lg-4 col-sm-6 offset-lg-0 offset-sm-3">
+                    <div class="contact-card">
+                        <i class="icofont-bullhorn"></i>
+                        <a href="">0 مدعو</a>
+                        <a href="" style="color: #be632d">ارسال دعوات</a>
+                    </div>
+                </div>
+            @endif
         </div>
     </div>
 </div>

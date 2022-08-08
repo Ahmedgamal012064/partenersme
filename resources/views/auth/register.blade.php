@@ -59,7 +59,11 @@
                             </div>
                             <div class="selection">
                               <input id="burger" name="type" type="radio" value="company" class="myclass">
-                              <label for="burger">مؤسسة او معلن</label>
+                              <label for="burger"> منشأة تجارية</label>
+                            </div>
+                            <div class="selection">
+                              <input id="marketer" name="type" type="radio" value="marketer" class="myclass3">
+                              <label for="marketer"> مسوق</label>
                             </div>
                           </div>
                         @error("type")
@@ -174,6 +178,14 @@ $(".myclass").change(function(){
 });
 
 $(".myclass2").change(function(){
+    if( $(this).is(":checked")){
+        $('.titleclass').attr("placeholder", "رقم الهوية");
+    }else{
+        $('.titleclass').attr("placeholder", "رقم السجل التجاري");
+    }
+});
+
+$(".myclass3").change(function(){
     if( $(this).is(":checked")){
         $('.titleclass').attr("placeholder", "رقم الهوية");
     }else{

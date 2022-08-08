@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title',"اضافة خطة")
+@section('title',"اضافة الباقة")
 
 @section('content')
 
@@ -12,9 +12,9 @@
                             <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">الرئيسية </a>
                                 </li>
-                            <li class="breadcrumb-item"><a href="{{route('admin.plans')}}">  الخطط </a>
+                            <li class="breadcrumb-item"><a href="{{route('admin.plans')}}">  الباقات </a>
                                 </li>
-                                <li class="breadcrumb-item active">إضافة خطة
+                                <li class="breadcrumb-item active">إضافة الباقة
                                 </li>
                             </ol>
                         </div>
@@ -28,7 +28,7 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title" id="basic-layout-form"> إضافة  خطة </h4>
+                                    <h4 class="card-title" id="basic-layout-form"> إضافة  الباقة </h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
@@ -48,14 +48,14 @@
                                             method="POST">
                                             @csrf
                                             <div class="form-body">
-                                                <h4 class="form-section"><i class="ft-home"></i> بيانات الخطة </h4>
+                                                <h4 class="form-section"><i class="ft-home"></i> بيانات الباقة </h4>
                                                         <div class="row">
                                                             <div class="col-md-4">
                                                                 <div class="form-group">
-                                                                    <label for="projectinput1"> اسم الخطة </label>
+                                                                    <label for="projectinput1"> اسم الباقة </label>
                                                                     <input type="text" value="" id="name"
                                                                         class="form-control"
-                                                                        placeholder="اسم الخطة"
+                                                                        placeholder="اسم الباقة"
                                                                         name="name" required>
                                                                     @error("name")
                                                                 <span class="text-danger">{{$message}}</span>
@@ -64,10 +64,10 @@
                                                             </div>
                                                             <div class="col-md-4">
                                                                 <div class="form-group">
-                                                                    <label for="projectinput1"> سعر الخطة </label>
-                                                                    <input type="text" value="" id="price"
+                                                                    <label for="projectinput1"> سعر الباقة </label>
+                                                                    <input type="number" value="" id="price"
                                                                         class="form-control"
-                                                                        placeholder="سعر الخطة"
+                                                                        placeholder="سعر الباقة"
                                                                         name="price" required>
                                                                     @error("price")
                                                                 <span class="text-danger">{{$message}}</span>
@@ -76,10 +76,10 @@
                                                             </div>
                                                             <div class="col-md-4">
                                                                 <div class="form-group">
-                                                                    <label for="projectinput1"> مشاهدة الخطة </label>
-                                                                    <input type="text" value="" id="views"
+                                                                    <label for="projectinput1"> مشاهدة الباقة </label>
+                                                                    <input type="number" value="" id="views"
                                                                         class="form-control"
-                                                                        placeholder="مشاهدة الخطة"
+                                                                        placeholder="مشاهدة الباقة"
                                                                         name="views" required>
                                                                     @error("views")
                                                                 <span class="text-danger">{{$message}}</span>
