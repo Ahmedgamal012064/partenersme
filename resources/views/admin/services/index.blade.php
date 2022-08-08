@@ -47,7 +47,7 @@
                                             class="table display nowrap table-striped table-bordered scroll-horizontal">{{--scroll-horizontal--}}
                                             <thead class="">
                                             <tr>
-                                                <th>الاسم </th>
+                                                <th>الخدمة </th>
                                                 <th>الوصف</th>
                                                 <th>الإجراءات</th>
                                             </tr>

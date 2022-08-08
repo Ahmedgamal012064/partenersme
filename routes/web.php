@@ -16,9 +16,9 @@ use App\Models\Service;
 | contains the "web" middleware group. Now create something great!
 |
 */
-/*
+
 Route::group( [ 'prefix' => 'LaravelLocalization'::setLocale(),
-'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ] ],function(){ *///start translate
+'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ] ],function(){ //start translate
     /*******************UnAuthintication View***********************/
     Route::get('/', function () {
         $testmonials = Testmonial::inRandomOrder()->limit(10)->get();
@@ -47,6 +47,23 @@ Route::group( [ 'prefix' => 'LaravelLocalization'::setLocale(),
             return redirect(url('/'));
         }
     })->name('services');
+    
+    
+    Route::get('/Advise', function () {
+            return view('advise');
+    })->name('advice');
+    
+        Route::get('/FAQ', function () {
+            return view('faq');
+    })->name('faq');  
+    
+     Route::get('/Police', function () {
+            return view('police');
+    })->name('police'); 
+    
+    Route::get('/Ads-Manage', function () {
+            return view('adsmanage');
+    })->name('adsmanage');
 
     Route::get('/Parteners', function () { return view('parteners'); })->name('parteners');
     Route::post('/send-message', 'Controller@sendmessage')->name('send.message');
@@ -67,18 +84,19 @@ Route::group( [ 'prefix' => 'LaravelLocalization'::setLocale(),
     Route::post('/update-profile', 'HomeController@updateprofile')->name('post.profile');
 
     Route::post('/Withdraw-Mony', 'HomeController@withdrawmoney')->name('post.withdraw');
+    
+    //jointoguide
+    Route::get('/Join-To-Guide', 'HomeController@jointoguide')->name('jointoguide');
+    Route::post('/Join-To-Guide', 'HomeController@postjointoguide')->name('post.jointoguide');
 
     //Ads
     Route::get('/My-Ads', 'AdsController@allads')->name('all.ads');
     Route::get('/Add-Advertise', 'AdsController@addads')->name('add.ads');
     Route::post('/Post-Advertise', 'AdsController@postadd')->name('post.ads');
     Route::post('/View-Advertise/{id}', 'AdsController@viewadd')->name('post.view');
-//});
+});
 
 
 /*
-    لما اليوزر يشوف الاعلان اتشيك لو كان عامل لوحن او مسجل معانا ولا وبعد كدة اظهر الكابتشا ويكسب كوين
     عرض  صفحة فواتير لطلبات السحب وامكانية طباعاتها عرض صفحة للاعلانات التي قام برؤيتها وكم ربح عل كل اعلان
-
-    لوحة الادمن اعرض الاعلانات بانتظار التفعيل واكشنات الاعلانات والسحوبات
 */

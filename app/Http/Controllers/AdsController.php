@@ -106,8 +106,22 @@ class AdsController extends Controller
     }
 
 
-    public function viewadd(Request $request)
+    public function viewadd(Request $request , $id)
     {
-        //
+        //return 'captcha'.$id;
+        $validator = Validator::make($request->all(), [
+            'captcha'.$id => 'required|captcha'
+        ]);
+
+        if ($validator->fails()) {
+            notify()->error('حدث خطأ حاول مرة اخري');
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+        Ad::find($id)->increment('views',1);
+        $user = User::find(Auth::id());
+        $user->increment('coins',1);
+        $user->ads()->attach($id);
+        notify()->success('لقد ربحت كوينز');
+        return redirect()->back()->with('success','لقد ربحت كوينز');
     }
 }

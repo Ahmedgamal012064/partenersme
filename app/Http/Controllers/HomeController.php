@@ -143,4 +143,30 @@ class HomeController extends Controller
         notify()->success('تم ارسال الطلب بنجاح');
         return redirect()->route('home')->with('success','تم ارسال الطلب بنجاح');
     }
+    
+    public function jointoguide()
+    {
+           return view('jointoguide');
+    }
+    
+     public function postjointoguide(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'name'      => 'required',
+            'photo'  => 'required',
+            'link_web'   => 'required' ,
+            'phone'   => 'required' ,
+            'link_snap'   => 'required' ,
+            'link_twitter'   => 'required' ,
+        ]);
+
+        if ($validator->fails()) {
+            notify()->error('حدث خطأ في البيانات حاول مرة أخري');
+            return redirect()->back()
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+        notify()->success('تم ارسال الطلب بنجاح');
+        return redirect()->back()->with('success','تم ارسال الطلب بنجاح');
+    }
 }

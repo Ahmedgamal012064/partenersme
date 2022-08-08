@@ -47,8 +47,8 @@
                                             class="table display nowrap table-striped table-bordered">{{--scroll-horizontal--}}
                                             <thead class="">
                                             <tr>
-                                                <th>الصورة</th>
-                                                <th>الاسم </th>
+                                                <th>العلامة التجارية</th>
+                                                <th>اسم المنشأة </th>
                                                 <th>الرابط </th>
                                                 <th>الإجراءات</th>
                                             </tr>

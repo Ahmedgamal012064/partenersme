@@ -107,6 +107,9 @@
             <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
             <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-analytics.js"></script>
         <!--End FireBase-->
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" integrity="sha512-Cv93isQdFwaKBV+Z4X8kaVBYWHST58Xb/jVOcV9aRsGSArZsgAnFIhMpDoMDcFNoUtday1hdjn0nGp3+KZyyFw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 
     </head>
 <body>
@@ -144,6 +147,19 @@
                                         <i class="icofont-phone"></i>
                                     </a>
                                 </li>
+                                @if (get_default_lang() == 'ar')
+                                    <li>
+                                        <a rel="alternate" hreflang="en"
+                                        href="{{LaravelLocalization::getLocalizedURL('en')}}">
+                                        <i class="flag-icon flag-icon-us"></i> English</a>
+                                    </li>
+                                        @else
+                                    <li>
+                                        <a rel="alternate" hreflang="ar"
+                                        href="{{LaravelLocalization::getLocalizedURL('ar')}}">
+                                        <i class="flag-icon flag-icon-sa"></i> عربي</a>
+                                    </li>
+                                @endif
                             </ul>
                         </div>
                     </div>
@@ -197,35 +213,76 @@
                         <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                             <ul class="navbar-nav ms-auto">
                                 <li class="nav-item">
-                                    <a href="{{url('/')}}" class="nav-link">الرئيسية</a>
+                                    <a href="{{url('/')}}" class="nav-link">{{__('main.main')}}</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#about" class="nav-link">من نحن</a>
+                                    <a href="#about" class="nav-link">{{__('main.about')}}</a>
                                 </li>
-                                {{-- <li class="nav-item">
-                                    <a href="#" class="nav-link dropdown-toggle">سابقة الاعمال</a>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link dropdown-toggle">{{__('main.digitaservecies')}}</a>
                                     <ul class="dropdown-menu">
                                         <li class="nav-item">
-                                            <a href="" class="nav-link">تصميم المواقع</a>
+                                            <a  @auth 
+                                                   href="{{route('jointoguide')}}" 
+                                                @else
+                                                   href="{{route('parteners')}}" 
+                                                @endauth 
+                                                class="nav-link">{{__('main.digitalbusinessdirectory')}}</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="" class="nav-link">فيس بوك</a>
+                                            <a href="{{route('photo.ads')}}" class="nav-link">{{__('main.(Picture)PPV')}}</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="" class="nav-link">تصوير المنتجات</a>
+                                            <a href="{{route('videos.ads')}}" class="nav-link">{{__('main.(Video)PPV')}}</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="" class="nav-link">تصاميم سوشيال ميديا</a>
+                                            <a href="{{route('adsmanage')}}" class="nav-link">{{__('main.managedigitaladvcampaigns')}}</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="" class="nav-link">فديوهات الرسوم المتحركة</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="" class="nav-link">تصميم الهوية التجارية</a>
+                                            <a href="{{route('advice')}}" class="nav-link">{{__('main.marketingconsulting')}}</a>
                                         </li>
                                     </ul>
-                                </li> --}}
+                                </li>
+                                
                                 <li class="nav-item">
+                                    <a href="#" class="nav-link dropdown-toggle">{{__('main.adsservices')}}</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item">
+                                            <a href="" class="nav-link">{{__('main.Brand design')}}</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="" class="nav-link">{{__('main.Advertising production')}}</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="" class="nav-link">{{__('main.Media production')}}</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="" class="nav-link">{{__('main.Motion graphics')}}</a>
+                                        </li>
+                                        
+                                        <li class="nav-item">
+                                            <a href="" class="nav-link">{{__('main.Photography design')}}</a>
+                                        </li>
+                                        
+                                          <li class="nav-item">
+                                            <a href="" class="nav-link">{{__('main.Video production')}}</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                
+                                 <li class="nav-item">
+                                    <a href="#" class="nav-link dropdown-toggle">{{__('main.techservices')}}</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item">
+                                            <a href="" class="nav-link">{{__('main.Programmingandweb')}}</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="" class="nav-link">{{__('main.Programmingandapplicationdesign')}}</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                
+                               {{-- <li class="nav-item">
                                     <a href="" class="nav-link dropdown-toggle">الاعلانات</a>
                                     <ul class="dropdown-menu">
                                         <li class="nav-item">
@@ -235,8 +292,8 @@
                                             <a href="{{route('videos.ads')}}" class="nav-link">اعلانات الفديوهات</a>
                                         </li>
                                     </ul>
-                                </li>
-                                <li class="nav-item">
+                                </li> --}}
+                                {{--<li class="nav-item">
                                     <a href="{{url('/')}}#services" class="nav-link dropdown-toggle">الخدمات</a>
                                     <ul class="dropdown-menu">
                                         @foreach (App\Models\Service::get() as $item)
@@ -245,12 +302,12 @@
                                             </li>
                                         @endforeach
                                     </ul>
-                                </li>
+                                </li>--}}
+                                {{--<li class="nav-item">
+                                    <a href="{{route('parteners')}}" target="_blank" class="nav-link">الدليل التجاري الرقمي</a>
+                                </li> --}}
                                 <li class="nav-item">
-                                    <a href="{{route('parteners')}}" target="_blank" class="nav-link">شركائي المليون</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{url('/')}}#contactus" class="nav-link">تواصل معنا</a>
+                                    <a href="{{url('/')}}#contactus" class="nav-link">{{__('main.contact')}}</a>
                                 </li>
                                 @auth
                                     <li class="nav-item">
@@ -266,6 +323,9 @@
                                                 <li class="nav-item">
                                                     <a href="{{route('all.ads')}}" class="nav-link">اعلاناتي</a>
                                                 </li>
+                                                <li class="nav-item">
+                                                    <a href="{{route('jointoguide')}}" class="nav-link">انضم للدليل التجاري الرقمي</a>
+                                                </li>
                                             @endif
                                             <li class="nav-item">
                                                 <a href="" class="nav-link" onclick="event.preventDefault();
@@ -278,7 +338,7 @@
                                     </li>
                                 @else
                                     <li class="nav-item">
-                                        <a href="{{route('login')}}" class="nav-link" style="color: #be632d !important;">سجل معنا</a>
+                                        <a href="{{route('login')}}" class="nav-link" style="color: #be632d !important;">{{__('main.register')}}</a>
                                     </li>
                                 @endauth
                             </ul>
@@ -290,27 +350,6 @@
         <!-- Navbar Area End -->
 
         @yield('content')
-    <!-- Newsletter Section Start -->
-    <div class="newsletter-section">
-        <div class="container">
-            <div class="newsletter-area">
-                <h2>انضم الي أخر أخبارنا اليومية واخر التحديثات</h2>
-                <div class="col-lg-6 p-0">
-                    <form class="newsletter-form" data-bs-toggle="validator" id="my_form">
-                        <input type="email" class="form-control" placeholder="البريد الالكتروني" name="EMAIL" required autocomplete="off" id="email">
-
-                        <button class="default-btn electronics-btn" type="submit" id="submit">
-                            اشتراك
-                        </button>
-
-                        <div id="validator-newsletter" class="form-result"></div>
-                    </form>
-                </div>
-                <img src="{{asset('Frontend/ar/img/newsletter-img.png')}}" alt="newsletter image">
-            </div>
-        </div>
-    </div>
-    <!-- Newsletter Section End -->
 
     <!-- Footer Area Start -->
     <footer class="footer-area">
@@ -364,19 +403,13 @@
                         <h3>خدماتنا</h3>
                         <ul>
                             <li>
-                                <a href="">إدارة وسائل التواصل الإجتماعي</a>
+                                <a href="">خدمات التسويق الرقمي </a>
                             </li>
                             <li>
-                                <a href="">تصميم وإستضافة المواقع</a>
+                                <a href="">خدمات الانتاج الإعلامي</a>
                             </li>
                             <li>
-                                <a href="">اعلانات جوجل ادوردز</a>
-                            </li>
-                            <li>
-                                <a href="">إنتاج الفيديوهات</a>
-                            </li>
-                            <li>
-                                <a href="">تصميم الهويات التجارية </a>
+                                <a href="">خدمات البرمجة</a>
                             </li>
                         </ul>
                     </div>
@@ -387,16 +420,13 @@
                         <h3>المساعدة</h3>
                         <ul>
                             <li>
-                                <a href="">السياسات والخصوصية</a>
+                                <a href="{{route('police')}}">السياسات والخصوصية</a>
                             </li>
                             <li>
-                                <a href="">الاسئلة الشائعة</a>
+                                <a href="{{route('faq')}}">الاسئلة الشائعة</a>
                             </li>
                             <li>
-                                <a href="">الشروط والاحكام</a>
-                            </li>
-                            <li>
-                                <a href="">تواصل معنا</a>
+                                <a href="">ضوابط وشروط وأحكام المستخدم لمنصة شركائي</a>
                             </li>
                         </ul>
                     </div>
@@ -411,11 +441,6 @@
                             </li>
                             <li>
                                 <a href="">من نحن</a>
-                            </li>
-                            <li>
-                                <a href=""> خدماتنا </a>
-                            <li>
-                                <a href="">المقالات</a>
                             </li>
                             <li>
                                 <a href="">تواصل معنا</a>
